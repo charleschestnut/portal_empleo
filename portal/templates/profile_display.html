@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ worker.name }} {{ worker.surname }}
+{% endblock %}
+
+{% block content-title %}
+    {{ worker.name }} {{ worker.surname }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <img src="{{ worker.picture.url }}" style="width:100px; height:100px"/>
+    </div>
+    <div>
+        <p>{{ worker.name }}</p>
+        <p>{{ worker.surname }}</p>
+        {% for profession in worker.professions.all %}
+            <p> {{ profession.name }}</p>
+        {% endfor %}
+        <p> {{ worker.city }}</p>
+        <p> {{ worker.user_id }}</p>
+        <p> {{ worker.avg_rating }}</p>
+        <p> {{ worker.description }}</p>
+    </div>
+
+
+    {% if request.user.username == worker.user.username %}
+        <a href="{% url 'profile_edit' %}" class="btn btn-outline-secondary"> Edit Profile </a>
+
+        <a href="{% url 'password_change' %}" class="btn btn-outline-secondary"> Change Password</a>
+
+    {% else %}
+
+        <a href="{% url 'labour_request' worker.user_id %}" class="btn btn-outline-secondary"> Request Services </a>
+        <form action="{% url 'labour_request' worker.user_id%}">
+            <button type="button" class="btn btn-outline-primary" type="submit">Request Services</button>
+
+        </form>
+    {% endif %}
+
+{% endblock %}

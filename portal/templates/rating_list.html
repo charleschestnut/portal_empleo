@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block load_css %}
+        <link rel="stylesheet" type="text/css" href={% static 'css/labour_list.css' %}>
+{% endblock %}
+{% block content-title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div>
+    {% for rating in rating_list %}
+        <div class="info-list">
+            <div>
+                {{ rating.rated_person.user.first_name }}
+            </div>
+
+            <p>Puntuation: {{ rating.puntuation }}</p>
+            <p>Description: {{ rating.description }}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

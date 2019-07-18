@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block add-tags %}
+    {% load profile_tags %}
+{% endblock %}
+{% block title %}
+    Search List
+{% endblock %}
+
+{% block content-title %}
+    Professionals Search
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="col-8">
+        <form method="GET" action="{% url 'search_list' %}"> {% csrf_token %}
+
+            <div class="form-row m-1">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="city" placeholder="Seville">
+            </div>
+
+            <div class="form-row m-1">
+                <label for="profession">Profession</label>
+                <select class="custom-select my-1 mr-sm-2" id="type" name="profession">
+                    <option selected="true" disabled="disabled">Category</option>
+                        {% for profession in profession_choices %}
+                            <option value="{{ profession.id }}"> {{ profession.name }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-row m-1">
+                <label for="min_puntuation">Min. Puntuation </label>
+                <input type="number" class="custom-select my-1 mr-sm-2" name="min_puntuation" min="0" max="10" default="0">
+            </div>
+
+            <div class="form-row m-1">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="rating_order" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                </div>
+            </div>
+
+            <div class="form-row m-1">
+                <button type="submit" class="btn btn-primary">Primary</button>
+            </div>
+        </form>
+    </div>
+
+    <ul>
+        <div class="users-list">
+            {% for worker in workers_list %}
+                 <div class="info-list">
+
+                     <a href="{% url 'profile_display' id=worker.user_id %}">
+                        <img src="{{ worker.picture.url }}"  style="width:100px; height: 100px"/>
+                     </a>
+                     <p> {{ worker.name }} </p>
+                     <p> {{ worker.city }}</p>
+                     {% for profession in worker.professions.all %}
+                         <p> {{ profession.name }}</p>
+                     {% endfor %}
+
+                     <p class="description"> {{ worker.description }}</p>
+
+                     <form action="{% url 'profile_display' id=worker.user_id %}">
+                        <button> See profile </button>
+                     </form>
+
+                    {% if request.user != worker.user %}
+                        <form action="{% url 'labour_request' id=worker.user_id %}">
+                            <button type="submit"> Request services </button>
+                        </form>
+                    {% endif %}
+
+                 </div>
+
+            {% endfor %}
+        </div>
+    </ul>
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block load_css %}
+        <link rel="stylesheet" type="text/css" href={% static 'css/labour_list.css' %}>
+{% endblock %}
+{% block content-title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="">
+    {% for labour_request in labour_request_list %}
+        <div class="info-list">
+            <div class="labour-name">
+                <p> {{ labour_request.worker.user.first_name }} </p>
+            </div>
+
+            <div class="labour-description">
+                <p> {{ labour_request.description}} </p>
+            </div>
+
+            {% if labour_request.state == 'PENDING'  and labour_request.worker.user.id == request.user.id%}
+                <form action="{% url 'labour_accept' id=labour_request.id%}">
+                    <button class="accept-labour">
+                        ACCEPT
+                    </button>
+                </form>
+
+                <form action="{% url 'labour_reject' id=labour_request.id%}">
+                    <button class="reject-labour">
+                        REJECT
+                    </button>
+                </form>
+
+            {% elif labour_request.state == 'IN_PROCESS' and labour_request.worker.user.id == request.user.id %}
+                <form action="{% url 'labour_total_finish' id=labour_request.id%}">
+                    <button>
+                        CONFIRM FINISH LABOUR
+                    </button>
+                </form>
+
+            {% elif labour_request.state == 'END_WORKER' and labour_request.creator.user.id == request.user.id %}
+                <form action="{% url 'labour_total_finish' id=labour_request.id%}">
+                    <button>
+                        FINISH LABOUR
+                    </button>
+                </form>
+
+
+            {% elif labour_request.state == 'FINISHED' %}
+                {{ labour_request.creator.user.id }}--{{ request.user.id }}
+                {% if labour_request.creator.user.id == request.user.id and not labour_request.workerrating %}
+                    <form action="{% url 'worker_rating_create' id=labour_request.id%}">
+                        <button>
+                            RATE WORKER
+                        </button>
+                    </form>
+
+                {% elif labour_request.worker.user.id == request.user.id and not labour_request.clientrating %}
+                    <form action="{% url 'client_rating_create' id=labour_request.id%}">
+                        <button>
+                            RATE CLIENT
+                        </button>
+                    </form>
+
+                 {% endif %}
+
+
+            {% elif labour_request.state == 'REJECTED'%}
+                <div class="labour-rejected">
+                    <p> REJECTED </p>
+                </div>
+
+            {% endif %}
+
+            <div class="labour-dates_down">
+                {% if labour_request.start_datetime %}
+                    <div class="labour-datetime">
+                        <p> It has started: {{ labour_request.start_datetime }}</p>
+                    </div>
+                {% endif %}
+
+                {% if labour_request.finish_datetime %}
+                    <div class="labour-datetime">
+                        <p> It has finished: {{ labour_request.finish_datetime }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

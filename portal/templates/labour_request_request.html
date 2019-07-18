@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content-title %}
+    {{ worker.user.first_name }}'s services request
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ labour_request_form.as_p }}
+        <button type="submit"> Send request </button>
+    </form>
+{% endblock %}

@@ -1,0 +1,69 @@
+
+div.topnav {
+    background-color: rgba(99, 206, 209, 0.67);
+    overflow: hidden;
+    font-weight: bold;
+    border-bottom: 1px solid #1900f5;
+    position: relative;
+    width: 100%;
+    top: 0;
+    display: inline-block;
+
+}
+
+div.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+div.dropdown-content{
+    display: none;
+    position: relative;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #3081dd;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  display: block;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #3081dd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: #3081dd;
+}
+
+div span.user{
+    float: right;
+}
+
+div span.logo{
+    float: left;
+}
