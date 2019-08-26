@@ -12,3 +12,5 @@ class ProfileAdmin(admin.ModelAdmin):
 admin.site.register(LabourRequest)
 admin.site.register(ClientRating)
 admin.site.register(WorkerRating)
+admin.site.register(LabourChat)
+admin.site.register(ChatMessage)

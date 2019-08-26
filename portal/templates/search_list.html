@@ -39,47 +39,94 @@
             <div class="form-row m-1">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" name="rating_order" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                    <label class="custom-control-label" for="customCheck1">Sort by rating puntuation</label>
                 </div>
             </div>
 
             <div class="form-row m-1">
-                <button type="submit" class="btn btn-primary">Primary</button>
+                <button type="submit" class="btn btn-primary"> Search </button>
             </div>
         </form>
-    </div>
 
-    <ul>
-        <div class="users-list">
-            {% for worker in workers_list %}
-                 <div class="info-list">
 
-                     <a href="{% url 'profile_display' id=worker.user_id %}">
-                        <img src="{{ worker.picture.url }}"  style="width:100px; height: 100px"/>
-                     </a>
-                     <p> {{ worker.name }} </p>
-                     <p> {{ worker.city }}</p>
-                     {% for profession in worker.professions.all %}
-                         <p> {{ profession.name }}</p>
-                     {% endfor %}
+        <div class="row users-list">
+            <div class="col">
+                {% for worker in workers_list %}
+                    <div class="row info-list border border-dark rounded p-3 m-3 bg-light">
+                        <div class="col">
 
-                     <p class="description"> {{ worker.description }}</p>
+                            <div class="row">
+                                {% if worker.picture %}
+                                    <a href="{% url 'profile_display' id=worker.user_id %}">
+                                        <img src="{{ worker.picture.url }}"  style="width:100px; height: 100px"/>
+                                    </a>
+                                {% endif %}
+                            </div>
 
-                     <form action="{% url 'profile_display' id=worker.user_id %}">
-                        <button> See profile </button>
-                     </form>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <p>Name: {{ worker.user.first_name }} {{ worker.user.last_name }} </p>
+                                    </div>
+                                    <div class="row">
+                                        <p>City: {{ worker.city }}</p>
+                                    </div>
+                                    <div class="row mb-1 mr-1">
+                                        {% for profession in worker.professions.all %}
+                                            <div class="col-auto mr-1 text-justify border border-dark rounded text-light bg-dark">
+                                                {{ profession.name }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="row">
+                                        <p>Puntuation: {{ worker.get_worker_rating_avg }}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="description"> {{ worker.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                    {% if request.user != worker.user %}
-                        <form action="{% url 'labour_request' id=worker.user_id %}">
-                            <button type="submit"> Request services </button>
-                        </form>
-                    {% endif %}
+                            <div class="row">
+                                {% if request.user != worker.user %}
+                                    <div class="col">
+                                        <a href="{% url 'labour_request' id=worker.user_id %}" class="btn btn-outline-secondary"> Request services</a>
+                                    </div>
+                                {% endif %}
 
-                 </div>
+                                <div class="col">
+                                    <a href="{% url 'profile_display' id=worker.user_id %}" class="btn btn-outline-secondary"> See profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
 
-            {% endfor %}
+                {% if workers_list %}
+                    <div class="row pagination">
+                        {% load pagination_tag %}
+                        <div class="row step-links">
+                            <span class="step-links">
+                                {% if workers_list.has_previous %}
+                                    <a href="{% url_transform_pagination url=request.get_full_path page=1 %}"> First </a>
+                                    <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.previous_page_number %}"> Previous </a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Page {{ workers_list.number }} of {{ workers_list.paginator.num_pages }}.
+                                </span>
+
+                                {% if workers_list.has_next %}
+                                    <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.next_page_number %}"> Next </a>
+                                    <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.paginator.num_pages %}"> Last </a>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+            {% endif %}
+            </div>
         </div>
-    </ul>
+    </div>
 
 
 {% endblock %}

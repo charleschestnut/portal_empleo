@@ -6,7 +6,7 @@ import datetime
 def labour_total_finish(request, id):
     labour = LabourRequest.objects.get(id=int(id))
 
-    soy_creador = labour.creator.id == request.user.id
+    soy_creador = labour.creator.user.id == request.user.id
     esta_end_work = labour.state == LABOUR_STATE_CHOICES[2]
 
     if(soy_creador and esta_end_work):

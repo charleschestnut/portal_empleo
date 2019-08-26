@@ -4,10 +4,12 @@
     {{ rated.user.first_name }}'s review
 {% endblock %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <form action="{% url 'worker_rating_create' labour.id %}" method="post">
+    <form action="{% url 'worker_rating_create' labour_id %}" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <button type="submit"> Send review </button>
     </form>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block load_css %}
+        <link rel="stylesheet" type="text/css" href={% static 'css/labour_list.css' %}>
+{% endblock %}
+{% block content-title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="col">
+        {% for chat in chat_list %}
+            <div class="row border border-dark rounded p-3 m-3">
+
+                <div class="col">
+                    <div class="row">
+                        {{ chat }}
+                    </div>
+                    <div class="row">
+                        {{ chat.last_message }}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'chat_display' id=chat.labour.id %}" class="btn btn-success text-center"> ENTER </a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

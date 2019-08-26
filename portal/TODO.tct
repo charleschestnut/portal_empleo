@@ -1,0 +1,28 @@
+-- Dos botones 'Request my services' en mi perfil.
+
+-- lista de request in process
+
+Aceptar labour request -> Añadir redirect
+Cancelar labour -> Añadir redirect
+
+En todos los formularios -> Añadir redirect y añadir botón come back
+
+-- Doble tick read chat (IMPORTANTE)
+
+Meter el mensaje cuando el chat está vacío.
+
+Meter el mensaje cuando la búsqueda está vacía.
+
+Meter en el navbar el enlace a los CHATS.
+
+Meter la opción de que pueda finalizar cualquiera de los dos el labour request
+
+-- Botón de rating worker --
+
+-- Cambiar formulario de rating woorker/client
+
+Etiqueta empty para las list.html
+
+Controlar que varias vistas sean sólo para usuarios autenticados.
+
+Añadir paginación a las listas

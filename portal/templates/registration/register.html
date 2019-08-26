@@ -4,13 +4,15 @@
 
 {% block content-title %} Create an account {% endblock %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
     <div class="col">
-  <p>Please, sign up using the following form:</p>
-  <form action="." method="post">
-    {{ user_form.as_p }}
-    {% csrf_token %}
-    <p><input type="submit" value="Create my account"></p>
-  </form>
+        <p>Please, sign up using the following form:</p>
+        <form action="." method="post">
+            {{ user_form|crispy }}
+            {% csrf_token %}
+            <p><input type="submit" class="btn btn-outline-secondary" value="Create my account"></p>
+        </form>
     </div>
 {% endblock %}

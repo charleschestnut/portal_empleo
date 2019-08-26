@@ -11,17 +11,22 @@
               </li>
           {% endif %}
 
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                LABOURS
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'labour_list_sent' %}"> SENT</a>
-                <a class="dropdown-item" href="{% url 'labour_list_pending' %}"> PENDING </a>
-                <a class="dropdown-item" href="{% url 'labour_list_in_process' %}"> IN PROCESS </a>
-                <a class="dropdown-item" href="{% url 'labour_list_finished' %}"> FINISHED </a>
-            </div>
-        </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    LABOURS
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'labour_list_sent' %}"> SENT</a>
+                  <a class="dropdown-item" href="{% url 'labour_list_pending' %}"> PENDING </a>
+                  <a class="dropdown-item" href="{% url 'labour_list_in_process' %}"> IN PROCESS </a>
+                  <a class="dropdown-item" href="{% url 'labour_list_finished' %}"> FINISHED </a>
+              </div>
+          </li>
+
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url 'chat_list' %}"> CHATS </a>
+          </li>
+
     </ul>
   </div>
     <div class="navbar-nav">

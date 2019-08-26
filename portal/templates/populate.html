@@ -10,70 +10,7 @@
 
 {% block content %}
     <div class="row border border-dark rounded p-3 m-3">
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    {% if worker.picture %}
-                        <img src="{{ worker.picture.url }}" style="width:100px; height:100px" alt="Profile picture"/>
-                    {% endif %}
-                </div>
-
-                {% if request.user.username == worker.user.username %}
-                    <div class="col">
-                        <div class="row justify-content-end">
-                            <a href="{% url 'profile_edit' %}" class="btn btn-outline-secondary m-1"> Edit Profile </a>
-                        </div>
-                        <div class="row justify-content-end">
-                            <a href="{% url 'password_change' %}" class="btn btn-outline-secondary m-1"> Change Password </a>
-                        </div>
-                    </div>
-
-                {% else %}
-                    <div class="col">
-                        <a href="{% url 'labour_request' worker.user_id %}" class="btn btn-outline-secondary"> Request Services </a>
-                        <a href="{% url 'labour_request' worker.user_id%}" role='button' class="btn btn-outline-primary">Request Services</a>
-                    </div>
-                {% endif %}
-            </div>
-
-            <div class="row mt-5">
-                <div class="col">
-                    <div class=row">
-                        <p>{{ worker.user.first_name }} {{ worker.user.last_name}}</p>
-                    </div>
-                    <div class=row">
-                        <p>Localidad: {{ worker.city }}</p>
-                    </div>
-
-                    <div class=row">
-                        <p> Average rating as a worker:  {{ worker.worker_rating_avg}}</p>
-                    </div>
-
-                    <div class=row">
-                        <p> Average rating as a client: {{ worker.client_rating_avg }}</p>
-                    </div>
-                    <div class=row">
-                        <p> {{ worker.description }}</p>
-                    </div>
-                    <div class="row">
-                        {% for profession in worker.professions.all %}
-                            <div class="col">
-                                <p class="text-light bg-primary rounded p-1 text-center">{{ profession.name }}</p>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row p-3 m-3">
-        {% if request.user.username == worker.user.username %}
-            <div class="col">
-                <div class="row">
-                    <a href="{% url 'profile_delete' %}" class="btn btn-outline-danger m-1"> Delete Profile </a>
-                </div>
-        {% endif %}
+        <p> Successfull population </p>
     </div>
 
 {% endblock %}

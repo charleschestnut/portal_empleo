@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from ..forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileForm
 from ..models import Profession, Profile
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 @login_required
@@ -16,6 +16,7 @@ def profile_edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            return redirect('profile_display', id=request.user.id)
         context['user_form'] = user_form
         context['profile_form'] = profile_form
     else:

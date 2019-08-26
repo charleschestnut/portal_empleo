@@ -27,13 +27,13 @@ def client_rating_create(request, id):
             )
             rating.save()
             # TODO: ACTUALIZAMOS LA VALORACIÓN MEDIA DEL RATED
-            update.update_avg_rating(rated.user_id, 'CLIENT')
+            update.update_avg_rating(rated, 'CLIENT')
 
             my_ratings_filter = Q(rater_person__id=request.user.id) | Q(rated_person__id=request.user.id)
             my_client_ratings = ClientRating.objects.filter(my_ratings_filter)
             context['rating_list'] = my_client_ratings
 
-            return render(request, 'rating_list.html', context)
+            return redirect('rating_list.html')
     else:
         rating_form = RatingForm()
         rated = labour.creator

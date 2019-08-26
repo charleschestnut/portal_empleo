@@ -37,6 +37,6 @@ def worker_rating_create(request, id):
     else:
         rating_form = RatingForm()
         rated = labour.worker
-        context = {'form': rating_form, 'rated': rated, 'id': labour.id}
+        context = {'form': rating_form, 'rated': rated, 'labour_id': labour.id}
 
     return render(request, 'worker_rating_create.html', context)

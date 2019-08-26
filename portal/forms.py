@@ -6,6 +6,12 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['dni', 'birthdate', 'city', 'description', 'professions', 'picture']
+        widgets = {
+            'dni': forms.TextInput(attrs={'class': 'form-control'}),
+            'birthdate': forms.TextInput(attrs={'class': 'form-control'}),
+            'city': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 
 class Searchform(forms.Form):
@@ -38,6 +44,12 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email')
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
 
 
 class LabourRequestForm(forms.Form):
@@ -47,3 +59,11 @@ class LabourRequestForm(forms.Form):
 class RatingForm(forms.Form):
     puntuation = forms.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
     description = forms.CharField(widget=forms.Textarea, max_length=1000)
+
+
+class ChatMessageForm(forms.Form):
+    content = forms.CharField(widget=forms.Textarea(
+        attrs={
+            'cols': 100,
+            'rows': 3,
+            'class': 'form-control'}), max_length=1000)

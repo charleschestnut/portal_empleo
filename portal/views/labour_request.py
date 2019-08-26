@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES
+from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES, LabourChat
 from ..forms import LabourRequestForm
-
+import datetime
 
 def labour_request(request, id):
     worker = Profile.objects.get(user_id=int(id))
@@ -23,6 +23,10 @@ def labour_request(request, id):
             )
             labour.save()
 
+            #Creamos el chat una vez se crea la Labour Request
+            crear_chat(labour.id)
+
+
             context = {'worker': worker}
             return render(request, 'profile_display.html', context)
 
@@ -31,3 +35,14 @@ def labour_request(request, id):
         labour_form = LabourRequestForm()
         context['labour_request_form'] = labour_form
     return render(request, 'labour_request_request.html', context)
+
+
+def crear_chat(labour_id):
+    now = datetime.datetime.now()
+    labour = LabourRequest.objects.get(id=labour_id)
+    chat = LabourChat(
+        creation_datetime=now,
+        last_message_datetime=now,
+        labour=labour,
+    )
+    chat.save()

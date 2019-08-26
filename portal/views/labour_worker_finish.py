@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from portal.models import LabourRequest, LABOUR_STATE_CHOICES
-import datetime
+
 
 
 def labour_worker_finish(request, id):
     labour = LabourRequest.objects.get(id=int(id))
 
-    soy_trabajor = labour.worker.id == request.user.id
+    soy_trabajor = labour.worker.user.id == request.user.id
     esta_en_marcha = labour.state == LABOUR_STATE_CHOICES[1]
+    print(soy_trabajor)
+    print(esta_en_marcha)
 
     if(soy_trabajor and esta_en_marcha):
         labour.state = LABOUR_STATE_CHOICES[2]
