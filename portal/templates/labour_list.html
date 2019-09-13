@@ -36,17 +36,28 @@
 
                     {% elif labour_request.state == 'IN_PROCESS' and labour_request.worker.user.id == request.user.id %}
                         <div class="col">
-                            <a href="{% url 'labour_worker_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR </a>
+                            <a href="{% url 'labour_worker_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR AS WORKER </a>
                         </div>
                         <div class="col">
                             <a href="{% url 'labour_cancel' id=labour_request.id %}" class="btn btn-danger text-center"> CANCEL </a>
                         </div>
+
+
+                     {% elif labour_request.state == 'IN_PROCESS' and labour_request.creator.user.id == request.user.id %}
+                        <div class="col">
+                            <a href="{% url 'labour_client_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR AS CLIENT </a>
+                        </div>
+
 
                     {% elif labour_request.state == 'END_WORKER' and labour_request.creator.user.id == request.user.id %}
                         <div class="col">
                             <a href="{% url 'labour_total_finish' id=labour_request.id %}" class="btn btn-danger text-center"> CONFIRM FINISH LABOUR </a>
                         </div>
 
+                    {% elif labour_request.state == 'END_CLIENT' and labour_request.worker.user.id == request.user.id %}
+                        <div class="col">
+                            <a href="{% url 'labour_total_finish' id=labour_request.id %}" class="btn btn-danger text-center"> CONFIRM FINISH LABOUR </a>
+                        </div>
 
                     {% elif labour_request.state == 'FINISHED' %}
 

@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from ..models import LabourChat
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def chat_list(request):
 
     filter = Q(labour__worker__user__id=request.user.id) | Q(labour__creator__user__id=request.user.id)

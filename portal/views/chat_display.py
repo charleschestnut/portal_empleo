@@ -2,8 +2,10 @@ from ..models import Profile, LabourChat, ChatMessage
 from ..forms import ChatMessageForm
 from django.shortcuts import render, redirect
 import datetime
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def chat_display(request, id):
     def remove_exceed_messages(list):
         if len(messages_list) > 10:
@@ -13,17 +15,19 @@ def chat_display(request, id):
 
     def read_new_messages(list):
         im_worker = actual_profile == actual_chat.labour.worker
-        print(im_worker)
+        print("I AM WORKER? -> " + str(im_worker))
         if im_worker:
             list.filter(owner__id=actual_chat.labour.worker_id).filter(is_read=False).update(is_read=True)
 
         else:
             list.filter(owner__id=actual_chat.labour.creator_id).filter(is_read=False).update(is_read=True)
 
-        print(list)
+        print("LIST: " + str(list))
         for message in list:
+            print(message.is_read)
             message.save()
-
+            print(message.is_read)
+        print("LIST AFTER SAVE:" +str(list))
 
     actual_profile = Profile.objects.get(user_id=request.user.id)
     actual_chat = LabourChat.objects.get(labour__id=int(id))

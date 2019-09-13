@@ -11,10 +11,14 @@ def url_transform_pagination(url, page):
 
     idx = str(url).find("&page=")
     print('INDEX: '+str(idx))
-    if idx== -1:
+    if idx == -1:
         url = str(url) + "&page="+str(page)
     else:
-        substring = "page="+str(url[idx])
-        url.replace(substring, "&page="+str(page))
+        idx = idx + 6
+        # Le añadimos el +6 debido a que en el método find te devuelve el índice del primer caracter, no del último.
+        substring = "&page="+str(url[idx])
+        url = url.replace(substring, "&page="+str(page))
+        print("NEW URL: "+str(url))
 
+    print(url)
     return url

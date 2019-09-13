@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from portal.models import *
 from ..forms import RatingForm
 from django.db.models import Q
 from . import update_avg_rating as update
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def client_rating_create(request, id):
     labour = LabourRequest.objects.get(id=int(id))
 

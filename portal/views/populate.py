@@ -2,6 +2,7 @@ from portal.models import *
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from datetime import date, timedelta
+from django.contrib.auth.decorators import login_required
 
 
 users_list = [
@@ -58,6 +59,7 @@ workerRating_list = [
     []
 ]
 
+@login_required
 def populate(request):
 
     print("----------------------------")

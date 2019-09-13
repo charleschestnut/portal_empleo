@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from portal.models import LabourRequest, LABOUR_STATE_CHOICES
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def labour_list_in_process(request):
     state_in_process = LABOUR_STATE_CHOICES[1]
     state_end_worker = LABOUR_STATE_CHOICES[2]

@@ -15,22 +15,22 @@
 
                 <div class="col">
                     <div class="row">
-                        {{ chat }}
+                        {% if chat.labour.creator.user.id == request.user.id %}
+                            <p class="font-weight-bold">{{ chat.labour.worker.user.first_name }} {{ chat.labour.worker.user.last_name }}</p>
+                        {% else %}
+                            <p class="font-weight-bold">{{ chat.labour.creator.user.first_name }} {{ chat.labour.creator.user.last_name }}</p>
+                        {% endif %}
+
                     </div>
-                    <div class="row">
-                        {{ chat.last_message }}
+                    <div class="row ml-3">
+                        <p class="font-weight-light">{{ chat.last_message }}</p>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <a href="{% url 'chat_display' id=chat.labour.id %}" class="btn btn-success text-center"> ENTER </a>
+                            <p><a href="{% url 'chat_display' id=chat.labour.id %}" class="btn btn-success text-center"> ENTER </a></p>
                         </div>
                     </div>
-
-
-
                 </div>
-
-
             </div>
         {% endfor %}
     </div>

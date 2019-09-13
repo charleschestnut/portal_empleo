@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from portal.models import LabourRequest, LABOUR_STATE_CHOICES
 import datetime
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def labour_accept(request, id):
     labour = LabourRequest.objects.get(id=int(id))
 

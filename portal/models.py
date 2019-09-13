@@ -50,6 +50,7 @@ LABOUR_STATE_CHOICES = [
     'PENDING',
     'IN_PROCESS',
     'END_WORKER',
+    'END_CLIENT',
     'FINISHED',
     'REJECTED',
     'CANCELLED',

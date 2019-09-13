@@ -3,14 +3,15 @@ from portal.models import *
 from ..forms import RatingForm
 from django.db.models import Q
 from . import update_avg_rating as update
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def worker_rating_create(request, id):
     labour = LabourRequest.objects.get(id=int(id))
 
     if request.method == 'POST':
         rating_form = RatingForm(request.POST)
-        context={}
+        context = {}
         if rating_form.is_valid():
             labour = LabourRequest.objects.get(id=int(id))
             description = rating_form.cleaned_data['description']

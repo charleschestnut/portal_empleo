@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from portal.models import LabourRequest, LABOUR_STATE_CHOICES
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def labour_list_sent(request):
     state_pending = LABOUR_STATE_CHOICES[0]
 

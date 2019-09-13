@@ -15,6 +15,7 @@ from .labour_accept import labour_accept
 from .labour_cancel import labour_cancel
 from .labour_reject import labour_reject
 from .labour_worker_finish import labour_worker_finish
+from .labour_client_finish import labour_client_finish
 from .labour_total_finish import labour_total_finish
 
 from .client_rating_create import client_rating_create

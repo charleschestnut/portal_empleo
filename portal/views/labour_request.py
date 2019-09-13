@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES, LabourChat
 from ..forms import LabourRequestForm
 import datetime
 
+
+
+@login_required
 def labour_request(request, id):
     worker = Profile.objects.get(user_id=int(id))
     if request.method == 'POST':
         labour_form = LabourRequestForm(request.POST)
+        context = {}
 
-        if labour_form.is_valid():
+        if labour_form.is_valid() and worker.user.id != request.user.id:
             creator = Profile.objects.get(user_id=request.user.id)
             state = LABOUR_STATE_CHOICES[0]
             description = labour_form.cleaned_data['description']
@@ -26,14 +31,15 @@ def labour_request(request, id):
             #Creamos el chat una vez se crea la Labour Request
             crear_chat(labour.id)
 
-
-            context = {'worker': worker}
-            return render(request, 'profile_display.html', context)
+            return redirect('profile_display', id=worker.user_id)
+        context['labour_request_form'] = labour_form
+        context['worker'] = worker
 
     else:
         context = {'worker': worker}
         labour_form = LabourRequestForm()
         context['labour_request_form'] = labour_form
+
     return render(request, 'labour_request_request.html', context)
 
 

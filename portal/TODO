@@ -1,0 +1,57 @@
+-- Dos botones 'Request my services' en mi perfil.
+
+-- lista de request in process
+
+-- Meter en el navbar el enlace a los CHATS.
+
+-- Meter la opción de que pueda finalizar cualquiera de los dos el labour request
+
+-- Botón de rating worker --
+
+-- Cambiar formulario de rating woorker/client
+
+-- Aceptar labour request -> Añadir redirect
+
+-- Cancelar labour -> Añadir redirect
+
+-- Doble tick read chat (IMPORTANTE)
+
+-- Añadir paginación a las listas
+
+-- Controlar que varias vistas sean sólo para usuarios autenticados.
+
+-- Controlar que no puedo hacerme una request a mí mismo.
+
+
+
+
+ # # # #  [ TO DO ]  # # # #
+
+En todos los formularios -> Añadir redirect y añadir botón come back
+
+Meter el mensaje cuando el chat está vacío.
+
+Meter el mensaje cuando la búsqueda está vacía.
+
+Etiqueta empty para las list.html
+
+
+
+
+SECCIÓN DE ADMINISTRADOR
+
+- Pueda crear tipos de trabajo
+- Pueda borrar ratings (añadir un atributo 'isBanned' a los worker/client ratings)
+- Pueda crear palabras malsonantes para baneos (descr. perfiles, worker/client-ratings) debe usarse los searchvectors
+- Crear y modificar una blacklist de usuarios
+
+
+BUSCADOR ESPECÍFICO DE USUARIOS
+DASHBOARD:
+- Nº de labours activos, pendientes, rechazados, finalizados...
+- Nº de valoraciones, valoraciones medias de los trabajadores, valoración media de clientes
+- Profile con más request como worker, otro profile con más request como creator
+
+
+
+CREAR MÉTODO PARA OBTENER TODOS LOS DATOS DEL USUARIO.

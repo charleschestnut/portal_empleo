@@ -24,6 +24,7 @@ urlpatterns = [
     path('labour-request/reject/<int:id>', views.labour_reject, name='labour_reject'),
     path('labour-request/cancel/<int:id>', views.labour_cancel, name='labour_cancel'),
     path('labour-request/worker-finish/<int:id>', views.labour_worker_finish, name='labour_worker_finish'),
+    path('labour-request/creator-finish/<int:id>', views.labour_client_finish, name='labour_client_finish'),
     path('labour-request/total-finish/<int:id>', views.labour_total_finish, name='labour_total_finish'),
 
 

@@ -4,10 +4,12 @@
     {{ worker.user.first_name }}'s services request
 {% endblock %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
     <form action="." method="post">
         {% csrf_token %}
-        {{ labour_request_form.as_p }}
+        {{ labour_request_form|crispy }}
         <button type="submit"> Send request </button>
     </form>
 {% endblock %}

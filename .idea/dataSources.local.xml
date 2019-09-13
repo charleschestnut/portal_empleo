@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="portal@localhost" uuid="7e09ce27-8a0d-4d73-9025-b660e9a370b3">
-      <database-info product="PostgreSQL" version="11.4" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="11.4" exact-driver-version="42.2">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>carlos-postgres</user-name>
-      <introspection-schemas>@:@</introspection-schemas>
-    </data-source>
     <data-source name="Django default" uuid="61e7d9ba-1eba-419f-888c-a545ca68e29a">
       <database-info product="PostgreSQL" version="11.4" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="11.4" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>carlos-postgres</user-name>
-      <introspection-schemas>@:@</introspection-schemas>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="PostgreSQL - portal@localhost" uuid="0b144ff3-75c2-452b-a7ad-134e5480bf8b">
+      <database-info product="PostgreSQL" version="11.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="11.5" exact-driver-version="42.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-mapping />
     </data-source>
   </component>
 </project>
