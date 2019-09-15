@@ -2,50 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="485a5073-a323-4fe6-8026-5ea1e0ee32c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/TODO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/views/labour_client_finish.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7e09ce27-8a0d-4d73-9025-b660e9a370b3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7e09ce27-8a0d-4d73-9025-b660e9a370b3/storage_v2/_src_/database/portal.bIhwxQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7e09ce27-8a0d-4d73-9025-b660e9a370b3/storage_v2/_src_/database/portal.bIhwxQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/portal_empleo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/portal_empleo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0004_clientrating_isbanned.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0005_workerrating_isbanned.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0006_administrator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0007_auto_20190914_2021.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0008_auto_20190915_2213.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0009_auto_20190915_2214.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0010_auto_20190915_2227.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0011_auto_20190915_2344.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0012_auto_20190915_2346.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_dashboard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_labour_ban.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_labour_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_profession_create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_profession_delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_profession_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_rating_ban.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_rating_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_user_ban.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/admin/admin_user_list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/authentication/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/labour/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/other_mehods/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/other_mehods/check_banned_user_view.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/other_mehods/user_is_banned.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/profile/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/rating/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/rating/client_rating/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/rating/worker_rating/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/TODO.tct" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/portal/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/chat_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/chat_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/client_rating_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/client_rating_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/labour_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/labour_request_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_request_request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/search_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/search_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/worker_rating_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/worker_rating_create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templatetags/pagination_tag.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templatetags/pagination_tag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/topnav.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/topnav.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/chat_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/chat_display.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/chat_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/chat_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/client_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/client_rating_create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_accept.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_accept.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_cancel.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_cancel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_list_finished.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_in_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_list_in_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_pending.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_list_pending.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_sent.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_list_sent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_reject.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_reject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_total_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_total_finish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/labour_worker_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour_worker_finish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/populate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/profile_delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile_delete.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/search_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/search_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/worker_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/worker_rating_create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal_empleo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_empleo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/client_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/client_rating/client_rating_create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_accept.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_accept.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_cancel.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_cancel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_client_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_client_finish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_finished.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_in_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_in_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_pending.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_pending.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_list_sent.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_sent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_reject.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_reject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_total_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_total_finish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour_worker_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_worker_finish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile_delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/profile_delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/profile_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/profile_edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/rating_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/authentication/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/user_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/authentication/user_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/worker_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/worker_rating/worker_rating_create.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,8 +103,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QHu4k6li2IRlb3ifpteGt7eetp" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -103,18 +118,19 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views" />
-      <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\portal\static" />
-      <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\static\css" />
-      <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\static" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\templates" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views" />
       <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\portal\views" />
       <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\portal\templates" />
       <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\static\media" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views\authentication" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views\profile" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views\rating" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views\rating\worker_rating" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views\rating\client_rating" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -198,7 +214,10 @@
       <workItem from="1567463618037" duration="1522000" />
       <workItem from="1568162464959" duration="4438000" />
       <workItem from="1568299325717" duration="6689000" />
-      <workItem from="1568389565103" duration="6365000" />
+      <workItem from="1568389565103" duration="6813000" />
+      <workItem from="1568460281795" duration="5881000" />
+      <workItem from="1568488380346" duration="2495000" />
+      <workItem from="1568578220902" duration="8714000" />
     </task>
     <servers />
   </component>
@@ -219,6 +238,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>

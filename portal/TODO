@@ -27,7 +27,12 @@
 
  # # # #  [ TO DO ]  # # # #
 
-En todos los formularios -> Añadir redirect y añadir botón come back
+
+ CAMBIAR EL SEARCH A DOS FORMULARIOS O APRENDER A OCULTAR CIERTOS PUNTOS
+
+En todos los formularios añadir redirect
+
+En todos los formularios añadir botón come back
 
 Meter el mensaje cuando el chat está vacío.
 
@@ -35,13 +40,24 @@ Meter el mensaje cuando la búsqueda está vacía.
 
 Etiqueta empty para las list.html
 
+Quitar LABOURS y CHATS de la top-nav si no está autenticado.
 
+BANEAR: LABOURS, USUARIOS, RATINGS
+
+- Listas de usuarios baneados
+
+- Lista de labours baneados
+
+- Lista de ratings baneados
+
+Un buscador donde introducir el ID y luego un select donde buscar si es un USUARIO, RATING O LABOUR
 
 
 SECCIÓN DE ADMINISTRADOR
 
 - Pueda crear tipos de trabajo
-- Pueda borrar ratings (añadir un atributo 'isBanned' a los worker/client ratings)
+- Añadir un atributo 'isBanned' a los worker/client ratings
+- Pueda borrar ratings
 - Pueda crear palabras malsonantes para baneos (descr. perfiles, worker/client-ratings) debe usarse los searchvectors
 - Crear y modificar una blacklist de usuarios
 

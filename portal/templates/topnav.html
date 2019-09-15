@@ -1,39 +1,84 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'search_list' %}">SEARCH</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto">
-          {% if request.user.is_authenticated %}
-              <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'profile_display' id=request.user.id %}">My Profile</a>
-              </li>
-          {% endif %}
 
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    LABOURS
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="{% url 'labour_list_sent' %}"> SENT</a>
-                  <a class="dropdown-item" href="{% url 'labour_list_pending' %}"> PENDING </a>
-                  <a class="dropdown-item" href="{% url 'labour_list_in_process' %}"> IN PROCESS </a>
-                  <a class="dropdown-item" href="{% url 'labour_list_finished' %}"> FINISHED </a>
-              </div>
-          </li>
+{% if request.user.administrator %}
 
-          <li class="nav-item active">
-              <a class="nav-link" href="{% url 'chat_list' %}"> CHATS </a>
-          </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'administrator_search' %}"> SEARCH </a>
 
-    </ul>
-  </div>
-    <div class="navbar-nav">
-      {% if request.user.is_authenticated %}
-          <a class="nav-item nav-link active" href="{% url "logout" %}">Logout<span class="sr-only">(current)</span></a>
-      {% else %}
-          <a class="nav-item nav-link active" href="{% url "login" %}">Login<span class ="sr-only">(current)</span></a>
-      {% endif %}
-    </div>
-</nav>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'administrator_dashboard' %}">DASHBOARD 2</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        BANNING SYSTEM
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'administrator_user_list_banned' %}"> USERS </a>
+                        <a class="dropdown-item" href="{% url 'administrator_rating_list_banned' %}"> RATINGS </a>
+                        <a class="dropdown-item" href="{% url 'administrator_labour_list_banned' %}"> LABOURS </a>
+                    </div>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'administrator_profession_list' %}"> PROFESSIONS </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="navbar-nav">
+            {% if request.user.is_authenticated %}
+                <a class="nav-item nav-link active" href="{% url "logout" %}">Logout<span
+                        class="sr-only">(current)</span></a>
+            {% else %}
+                <a class="nav-item nav-link active" href="{% url "login" %}">Login<span class="sr-only">(current)</span></a>
+            {% endif %}
+        </div>
+    </nav>
+
+
+{% else %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'search_list' %}">SEARCH</a>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'profile_display' id=request.user.id %}">My Profile</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            LABOURS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{% url 'labour_list_sent' %}"> SENT</a>
+                            <a class="dropdown-item" href="{% url 'labour_list_pending' %}"> PENDING </a>
+                            <a class="dropdown-item" href="{% url 'labour_list_in_process' %}"> IN PROCESS </a>
+                            <a class="dropdown-item" href="{% url 'labour_list_finished' %}"> FINISHED </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'chat_list' %}"> CHATS </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+        <div class="navbar-nav">
+            {% if request.user.is_authenticated %}
+                <a class="nav-item nav-link active" href="{% url "logout" %}">Logout<span
+                        class="sr-only">(current)</span></a>
+            {% else %}
+                <a class="nav-item nav-link active" href="{% url "login" %}">Login<span class="sr-only">(current)</span></a>
+            {% endif %}
+        </div>
+    </nav>
+
+{% endif %}

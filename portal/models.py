@@ -13,11 +13,28 @@ class Profession(models.Model):
         return self.name
 
 
+class Administrator(models.Model):
+    id_worker = models.PositiveIntegerField(unique=True)
+
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+                                on_delete=models.CASCADE)
+
+class Banning(models.Model):
+    start_datetime = models.DateField(auto_now_add=True)
+    description = models.TextField(max_length=1000)
+    finish_datetime = models.DateField()
+
+    def __str__(self):
+        return self.description+str(self.start_datetime)+"-->"+str(self.finish_datetime)
+
+
 class Profile(models.Model):
     birthdate = models.DateField(null=True)
     dni = models.CharField(max_length=9, unique=True)
     city = models.TextField(max_length=30)
     description = models.TextField(default="Default description", null=True, blank=True, max_length = 1000)
+
+    banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
 
     professions = models.ManyToManyField(Profession)
     picture = models.ImageField(null=True, blank=True)
@@ -64,11 +81,13 @@ class LabourRequest(models.Model):
     start_datetime = models.DateTimeField(null=True, blank=True)
     finish_datetime = models.DateTimeField(null=True, blank=True)
 
+    banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
+
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='creator')
     worker = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='worker')
 
     def __str__(self):
-        return "Labour request created by "+self.creator.user.first_name
+        return "Labour request created by "+self.creator.user.first_name+"->"+self.worker.user.first_name
 
 
 
@@ -99,7 +118,9 @@ class ChatMessage(models.Model):
 
 class ClientRating(models.Model):
     puntuation = models.PositiveIntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
-    description = models.TextField(max_length=300, blank=True, null= True)
+    description = models.TextField(max_length=300, blank=True, null=True)
+
+    banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
 
     labour = models.OneToOneField(LabourRequest, on_delete=models.CASCADE)
 
@@ -107,15 +128,15 @@ class ClientRating(models.Model):
     rated_person = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='rated')
 
     def __str__(self):
-        return self.rater_person.user.first_name+" -> "+ self.rated_person.user.first_name+" -- " +str(self.puntuation)
-
-
+        return self.rater_person.user.first_name+" -> " + self.rated_person.user.first_name+" -- " +str(self.puntuation)
 
 
 
 class WorkerRating(models.Model):
     puntuation = models.PositiveIntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
-    description = models.TextField(max_length=300, blank=True, null= True)
+    description = models.TextField(max_length=300, blank=True, null=True)
+
+    banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
 
     labour = models.OneToOneField(LabourRequest, on_delete=models.CASCADE)
 
@@ -123,5 +144,5 @@ class WorkerRating(models.Model):
     rated_person = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='workerRated')
 
     def __str__(self):
-        return self.rater_person.user.first_name+" -> "+ self.rated_person.user.first_name+" -- " +str(self.puntuation)
+        return self.rater_person.user.first_name+" -> " + self.rated_person.user.first_name+" -- " +str(self.puntuation)
 
