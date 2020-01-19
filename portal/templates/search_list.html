@@ -51,58 +51,58 @@
 
         <div class="row users-list">
             <div class="col">
-                {% for worker in workers_list %}
-                    <div class="row info-list border border-dark rounded p-3 m-3 bg-light">
-                        <div class="col">
+                {% if workers_list %}
+                    {% for worker in workers_list %}
+                        <div class="row info-list border border-dark rounded p-3 m-3 bg-light">
+                            <div class="col">
 
-                            <div class="row">
-                                {% if worker.picture %}
-                                    <a href="{% url 'profile_display' id=worker.user_id %}">
-                                        <img src="{{ worker.picture.url }}"  style="width:100px; height: 100px"/>
-                                    </a>
-                                {% endif %}
-                            </div>
+                                <div class="row">
+                                    {% if worker.picture %}
+                                        <a href="{% url 'profile_display' id=worker.user_id %}">
+                                            <img src="{{ worker.picture.url }}"  style="width:100px; height: 100px"/>
+                                        </a>
+                                    {% endif %}
+                                </div>
 
-                            <div class="row">
-                                <div class="col">
-                                    <div class="row">
-                                        <p>Name: {{ worker.user.first_name }} {{ worker.user.last_name }} </p>
-                                    </div>
-                                    <div class="row">
-                                        <p>City: {{ worker.city }}</p>
-                                    </div>
-                                    <div class="row mb-1 mr-1">
-                                        {% for profession in worker.professions.all %}
-                                            <div class="col-auto mr-1 text-justify border border-dark rounded text-light bg-dark">
-                                                {{ profession.name }}
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                    <div class="row">
-                                        <p>Puntuation: {{ worker.get_worker_rating_avg }}</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="description"> {{ worker.description }}</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row">
+                                            <p>Name: {{ worker.user.first_name }} {{ worker.user.last_name }} </p>
+                                        </div>
+                                        <div class="row">
+                                            <p>City: {{ worker.city }}</p>
+                                        </div>
+                                        <div class="row mb-1 mr-1">
+                                            {% for profession in worker.professions.all %}
+                                                <div class="col-auto mr-1 text-justify border border-dark rounded text-light bg-dark">
+                                                    {{ profession.name }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="row">
+                                            <p>Puntuation: {{ worker.worker_rating_avg }}</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="description"> {{ worker.description }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                {% if request.user != worker.user %}
+                                <div class="row">
+                                    {% if request.user != worker.user %}
+                                        <div class="col">
+                                            <a href="{% url 'labour_request' id=worker.user_id %}" class="btn btn-outline-secondary"> Request services</a>
+                                        </div>
+                                    {% endif %}
+
                                     <div class="col">
-                                        <a href="{% url 'labour_request' id=worker.user_id %}" class="btn btn-outline-secondary"> Request services</a>
+                                        <a href="{% url 'profile_display' id=worker.user_id %}" class="btn btn-outline-secondary"> See profile</a>
                                     </div>
-                                {% endif %}
-
-                                <div class="col">
-                                    <a href="{% url 'profile_display' id=worker.user_id %}" class="btn btn-outline-secondary"> See profile</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
 
-                {% if workers_list %}
                     <div class="row pagination">
                         {% load pagination_tag %}
                         <div class="row step-links">
@@ -123,7 +123,13 @@
                             </span>
                         </div>
                     </div>
+
+                {% else %}
+                    <div>
+                        <h3 class='text-center'> There's no users that fit with that search specifications </h3>
+                    </div>
                 {% endif %}
+
             </div>
         </div>
     </div>

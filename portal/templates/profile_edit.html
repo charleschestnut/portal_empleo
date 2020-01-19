@@ -20,5 +20,7 @@
 
         {% csrf_token %}
         <p><input type="submit" class='btn btn-outline-secondary' value="Save changes"></p>
+        <button class="btn btn-outline-secondary" onclick="javascript:history.back();">Cancel</button>
+
   </form>
 {% endblock %}

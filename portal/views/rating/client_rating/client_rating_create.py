@@ -29,7 +29,7 @@ def client_rating_create(request, id):
             )
             rating.save()
             # TODO: ACTUALIZAMOS LA VALORACIÓN MEDIA DEL RATED
-            update.update_avg_rating(rated, 'CLIENT')
+            update.update_avg_rating(rater.user_id, 'CLIENT', rated.user_id)
 
             my_ratings_filter = Q(rater_person__id=request.user.id) | Q(rated_person__id=request.user.id)
             my_client_ratings = ClientRating.objects.filter(my_ratings_filter)

@@ -16,17 +16,19 @@ def chat_display(request, id):
     def read_new_messages(list):
         im_worker = actual_profile == actual_chat.labour.worker
         print("I AM WORKER? -> " + str(im_worker))
-        if im_worker:
-            list.filter(owner__id=actual_chat.labour.worker_id).filter(is_read=False).update(is_read=True)
-
+        print("list before if:", list)
+        if not im_worker:
+            messages_to_read = list.filter(owner__id=actual_chat.labour.worker_id).filter(is_read=False)
+            messages_to_read.update(is_read=True)
         else:
-            list.filter(owner__id=actual_chat.labour.creator_id).filter(is_read=False).update(is_read=True)
+            messages_to_read = list.filter(owner__id=actual_chat.labour.creator_id).filter(is_read=False)
+            messages_to_read.update(is_read=True)
 
         print("LIST: " + str(list))
-        for message in list:
-            print(message.is_read)
-            message.save()
-            print(message.is_read)
+        for messag in messages_to_read:
+            print(messag.is_read)
+            messag.save()
+            print(messag.is_read)
         print("LIST AFTER SAVE:" +str(list))
 
     actual_profile = Profile.objects.get(user_id=request.user.id)

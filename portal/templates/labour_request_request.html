@@ -10,6 +10,8 @@
     <form action="." method="post">
         {% csrf_token %}
         {{ labour_request_form|crispy }}
-        <button type="submit"> Send request </button>
+        <button type="submit" class="btn btn-outline-secondary"> Send request </button>
+        <button class="btn btn-outline-secondary" onclick="javascript:history.back();">Cancel</button>
+
     </form>
 {% endblock %}

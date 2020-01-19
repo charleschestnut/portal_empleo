@@ -33,9 +33,9 @@ def search_list(request):
 
         if rating_order:
             if workers_list is None:
-                workers_list = Profile.objects.order_by('-rating_avg')
+                workers_list = Profile.objects.order_by('-worker_rating_avg')
             else:
-                workers_list = workers_list.order_by('-rating_avg')
+                workers_list = workers_list.order_by('worker_rating_avg')
 
         if request.user.id and workers_list:
             workers_list = workers_list.exclude(user_id=request.user.id)

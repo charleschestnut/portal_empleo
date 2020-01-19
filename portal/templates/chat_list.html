@@ -4,12 +4,14 @@
 {% block load_css %}
         <link rel="stylesheet" type="text/css" href={% static 'css/labour_list.css' %}>
 {% endblock %}
+
 {% block content-title %}
     {{ title }}
 {% endblock %}
 
 {% block content %}
     <div class="col">
+        {% i %}
         {% for chat in chat_list %}
             <div class="row border border-dark rounded p-3 m-3">
 

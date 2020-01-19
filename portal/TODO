@@ -22,25 +22,41 @@
 
 -- Controlar que no puedo hacerme una request a mí mismo.
 
+-- En todos los formularios añadir botón come back
+
+-- Meter el mensaje cuando el chat está vacío.
+
+-- Meter el mensaje cuando la búsqueda está vacía.
+
+-- Quitar LABOURS y CHATS de la top-nav si no está autenticado.
+
+-- Etiqueta empty para las list.html
 
 
 
- # # # #  [ TO DO ]  # # # #
+ # # # #  # # # #  # # # # #
+ # # # #  [ TO DO ERRORS ] #
+ # # # #  # # # #  # # # # #
 
+ERROR: Al crear un worker rating > 10 ó < 0 peta.
 
- CAMBIAR EL SEARCH A DOS FORMULARIOS O APRENDER A OCULTAR CIERTOS PUNTOS
+ERROR: Búsqueda peta si seleccionas sólo la casilla de rating avg
+
+CAMBIAR EL SEARCH A DOS FORMULARIOS O APRENDER A OCULTAR CIERTOS PUNTOS
 
 En todos los formularios añadir redirect
 
-En todos los formularios añadir botón come back
 
-Meter el mensaje cuando el chat está vacío.
 
-Meter el mensaje cuando la búsqueda está vacía.
 
-Etiqueta empty para las list.html
+ # # # #  # # # # # # # # # #  # # # #
+ # # # #  [ TO DO EXTENSION ]  # # # #
+ # # # #  # # # # # # # # # #  # # # #
+CONTACT US
 
-Quitar LABOURS y CHATS de la top-nav si no está autenticado.
+WHO WE ARE
+
+TERMS & CONDITIONS
 
 BANEAR: LABOURS, USUARIOS, RATINGS
 
@@ -55,8 +71,7 @@ Un buscador donde introducir el ID y luego un select donde buscar si es un USUAR
 
 SECCIÓN DE ADMINISTRADOR
 
-- Pueda crear tipos de trabajo
-- Añadir un atributo 'isBanned' a los worker/client ratings
+- Pueda crear profesiones
 - Pueda borrar ratings
 - Pueda crear palabras malsonantes para baneos (descr. perfiles, worker/client-ratings) debe usarse los searchvectors
 - Crear y modificar una blacklist de usuarios
@@ -65,6 +80,7 @@ SECCIÓN DE ADMINISTRADOR
 BUSCADOR ESPECÍFICO DE USUARIOS
 DASHBOARD:
 - Nº de labours activos, pendientes, rechazados, finalizados...
+    - Gráfica del número de labours activos y de labours finalizados por semana.
 - Nº de valoraciones, valoraciones medias de los trabajadores, valoración media de clientes
 - Profile con más request como worker, otro profile con más request como creator
 

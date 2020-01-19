@@ -28,7 +28,7 @@ def worker_rating_create(request, id):
             )
             rating.save()
             # TODO: ACTUALIZAMOS LA VALORACIÓN MEDIA DEL RATED
-            update.update_avg_rating(rated.user_id, 'WORKER')
+            update.update_avg_rating(rated.user_id, 'WORKER', rater.user_id)
 
             my_ratings_filter = Q(rater_person__id=request.user.id) | Q(rated_person__id=request.user.id)
             my_worker_ratings = WorkerRating.objects.filter(my_ratings_filter)

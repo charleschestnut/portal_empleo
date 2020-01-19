@@ -5,7 +5,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
-
 class Profession(models.Model):
     name = models.CharField(max_length=30, unique=True)
 
@@ -55,7 +54,7 @@ class Profile(models.Model):
             return 0.0
 
     def get_worker_rating_avg(self):
-        avg =  WorkerRating.objects.filter(rated_person__user_id=self.user_id).aggregate(Avg('puntuation')).get('puntuation__avg')
+        avg = WorkerRating.objects.filter(rated_person__user_id=self.user_id).aggregate(Avg('puntuation')).get('puntuation__avg')
         if avg:
             return avg
         else:
@@ -114,14 +113,21 @@ class ChatMessage(models.Model):
     chat = models.ForeignKey(LabourChat, on_delete=models.CASCADE)
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.content[:10]+"..."
+
 
 
 class ClientRating(models.Model):
-    puntuation = models.PositiveIntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
+    puntuation = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+    ])
     description = models.TextField(max_length=300, blank=True, null=True)
 
     banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
-
     labour = models.OneToOneField(LabourRequest, on_delete=models.CASCADE)
 
     rater_person = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='rater')
@@ -133,11 +139,15 @@ class ClientRating(models.Model):
 
 
 class WorkerRating(models.Model):
-    puntuation = models.PositiveIntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
+    puntuation = models.IntegerField(
+        default=0,
+        validators=[
+            MaxValueValidator(10),
+            MinValueValidator(0)
+        ])
     description = models.TextField(max_length=300, blank=True, null=True)
 
     banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
-
     labour = models.OneToOneField(LabourRequest, on_delete=models.CASCADE)
 
     rater_person = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='workerRater')
