@@ -40,10 +40,6 @@
 
 ERROR: Al crear un worker rating > 10 ó < 0 peta.
 
-ERROR: Búsqueda peta si seleccionas sólo la casilla de rating avg
-
-CAMBIAR EL SEARCH A DOS FORMULARIOS O APRENDER A OCULTAR CIERTOS PUNTOS
-
 En todos los formularios añadir redirect
 
 
@@ -52,6 +48,16 @@ En todos los formularios añadir redirect
  # # # #  # # # # # # # # # #  # # # #
  # # # #  [ TO DO EXTENSION ]  # # # #
  # # # #  # # # # # # # # # #  # # # #
+
+# # # # HACER ESTO LO PRIMERO # # # # # # # # # # # # # # #
+
+SECCIÓN DE ADMINISTRADOR
+
+- Pueda crear profesiones
+- Pueda borrar ratings
+- Pueda crear palabras malsonantes para baneos (descr. perfiles, worker/client-ratings) debe usarse los searchvectors
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 CONTACT US
 
 WHO WE ARE
@@ -69,12 +75,7 @@ BANEAR: LABOURS, USUARIOS, RATINGS
 Un buscador donde introducir el ID y luego un select donde buscar si es un USUARIO, RATING O LABOUR
 
 
-SECCIÓN DE ADMINISTRADOR
 
-- Pueda crear profesiones
-- Pueda borrar ratings
-- Pueda crear palabras malsonantes para baneos (descr. perfiles, worker/client-ratings) debe usarse los searchvectors
-- Crear y modificar una blacklist de usuarios
 
 
 BUSCADOR ESPECÍFICO DE USUARIOS

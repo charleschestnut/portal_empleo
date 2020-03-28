@@ -1,0 +1,35 @@
+
+
+.footer{
+    background-color: #beedeb;
+    color: darkslateblue;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer .contact-us{
+    display: inline-block;
+    width: 33%;
+    aling-items: center;
+    justify-content: center;
+}
+
+.footer .who-we-are{
+    display: inline-block;
+    width: 33%;
+    aling-items: center;
+    justify-content: center;
+}
+
+.footer .terms-and-conditions{
+    display: inline-block;
+    width: 33%;
+    aling-items: center;
+    justify-content: center;
+}
+
+.footer p{
+    display: flex;
+    aling-items: center;
+    justify-content: center;
+}

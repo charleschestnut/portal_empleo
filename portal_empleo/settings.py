@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'django.contrib.postgres',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -148,6 +149,10 @@ STATICFILES_FINDER = {
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 MEDIA_URL = '/media/'
 LOGIN_URL = '/login'
+
+#django-paypal settings
+PAYPAL_RECEIVER_EMAIL = 'carloscastanyotfg@gmail.com'
+PAYPAL_TEST = True
 
 FILE_UPLOAD_HANDLERS = [
     'django.core.files.uploadhandler.MemoryFileUploadHandler',

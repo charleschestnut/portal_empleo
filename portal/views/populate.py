@@ -11,7 +11,7 @@ users_list = [
     ['elvira', 'elvira@gmail.com', 'password_e', 'Elvira', 'del Castillo González'],
     ['alejandro', 'alejandro@gmail.com', 'password_a', 'Alejandro', 'Castaño del Castillo'],
     ['dionisio', 'dionisio@gmail.com', 'password_d', 'Dionisio', 'Castaño Aguado'],
-    ['mariam', 'mariam@gmail.com', 'password_m', 'Mariam', 'Saadi Crespo'],
+    ['deku', 'deku@gmail.com', 'password_d', 'Deku', 'Castaño Del Castillo'],
     ['juanmarco', 'juanmarco@gmail.com', 'password_jm', 'Juan Marco', 'Domínguez'],
 ]
 
@@ -23,14 +23,14 @@ profiles_list = [
     ['1966-01-27', '00000002B', 'Huelva', "Elvira's description", ['Carpintería', 'Electricidad'], 'elvira'],
     ['1984-07-04', '00000003C', 'Sevilla', "Alejandro's description", ['Hostelería', 'Electricidad'], 'alejandro'],
     ['1984-07-04', '00000004D', 'Huelva', "Dionisio's description", ['Jardinería', 'Albañilería'], 'dionisio'],
-    ['1984-07-04', '00000005E', 'Dos Hermanas', "Mariam's description", ['Electricidad', 'Albañilería'], 'mariam'],
+    ['1984-07-04', '00000005E', 'Con Migo', "Deku's description", ['Electricidad', 'Albañilería'], 'deku'],
     ['1984-07-04', '00000006F', 'Huelva', "Juan Marco's description", ['Hostelería'], 'juanmarco'],
 ]
 
 labourRequests_list = [
     #description, state, start_datetime, finish_datetime, creator, worker
     ['Ayúdame en esta tarea, por favor.', 'PENDING', None, None, 'daniel', 'alejandro'],
-    ['Córtame jamón, por favor.', 'REJECTED', None, None, 'mariam', 'dionisio'],
+    ['Córtame jamón, por favor.', 'REJECTED', None, None, 'deku', 'dionisio'],
     ['Arréglame el ordenador, por favor.', 'FINISHED', 'yesterday', 'two days ago', 'elvira', 'alejandro'],
     ['Hazme un plan de ejercicio de piernas, por favor.', 'IN_PROCESS', 'yesterday', None, 'juanmarco', 'daniel']
 ]
