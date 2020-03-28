@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="485a5073-a323-4fe6-8026-5ea1e0ee32c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile.windows" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/migrations/0013_auto_20200328_1607.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runtime.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/portal_empleo/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/chat_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/chat_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/labour_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/rating_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/rating_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal_empleo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_empleo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal_empleo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_empleo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal_empleo/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_empleo/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/portal_empleo/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/labour_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/portal_empleo/css/labour_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/topnav.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/portal_empleo/css/topnav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/hidden_description.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/portal_empleo/js/hidden_description.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +204,7 @@
       <workItem from="1585323377791" duration="3371000" />
       <workItem from="1585400486293" duration="1543000" />
       <workItem from="1585403343032" duration="4116000" />
-      <workItem from="1585407782194" duration="1337000" />
+      <workItem from="1585407782194" duration="1606000" />
     </task>
     <servers />
   </component>
