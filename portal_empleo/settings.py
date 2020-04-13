@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+POSTGRES_PASS = False
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r)gvl%#h(_wlp*4&wc!58t#kpx*pt6v)%96l&&e987&mpair&#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['portalheroku.herokuapp.com']
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django.contrib.postgres',
     'paypal.standard.ipn',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -153,7 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 MEDIA_URL = '/media/'
 LOGIN_URL = '/login'
 
-#django-paypal settings
+# django-paypal settings
 PAYPAL_RECEIVER_EMAIL = 'carloscastanyotfg@gmail.com'
 PAYPAL_TEST = True
 
@@ -165,9 +168,4 @@ FILE_UPLOAD_HANDLERS = [
 INTERNAL_IPS = ['127.0.0.1']
 
 LOGIN_REDIRECT_URL = 'search_list'
-LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-
-import dj_database_url
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)

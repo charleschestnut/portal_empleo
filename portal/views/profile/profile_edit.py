@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from portal.forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileForm
-from portal.models import Profession, Profile
+from portal.forms import UserEditForm, ProfileForm
 from django.shortcuts import render, redirect
 
 

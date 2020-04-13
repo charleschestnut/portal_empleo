@@ -54,10 +54,11 @@ class UserEditForm(forms.ModelForm):
 
 class LabourRequestForm(forms.Form):
     description = forms.CharField(widget=forms.Textarea, max_length=1000)
+    price = forms.IntegerField(min_value=0, max_value=9999)
 
 
 class RatingForm(forms.Form):
-    puntuation = forms.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
+    punctuation = forms.IntegerField(min_value=0, max_value=10)
     description = forms.CharField(widget=forms.Textarea, max_length=1000)
 
 

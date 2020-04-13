@@ -32,14 +32,14 @@
             </div>
 
             <div class="form-row m-1">
-                <label for="min_puntuation">Min. Puntuation </label>
-                <input type="number" class="custom-select my-1 mr-sm-2" name="min_puntuation" min="0" max="10" default="0">
+                <label for="min_punctuation">Min. punctuation </label>
+                <input type="number" class="custom-select my-1 mr-sm-2" name="min_punctuation" min="0" max="10" default="0">
             </div>
 
             <div class="form-row m-1">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" name="rating_order" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Sort by rating puntuation</label>
+                    <label class="custom-control-label" for="customCheck1">Sort by rating punctuation</label>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@
                                             {% endfor %}
                                         </div>
                                         <div class="row">
-                                            <p>Puntuation: {{ worker.worker_rating_avg }}</p>
+                                            <p>punctuation: {{ worker.worker_rating_avg }}</p>
                                         </div>
                                         <div class="row">
                                             <p class="description"> {{ worker.description }}</p>

@@ -17,13 +17,16 @@ def labour_request(request, id):
             creator = Profile.objects.get(user_id=request.user.id)
             state = LABOUR_STATE_CHOICES[0]
             description = labour_form.cleaned_data['description']
+            price=labour_form.cleaned_data['price']
 
             labour = LabourRequest(
                 description=description,
                 state=state,
                 start_datetime=None,
                 finish_datetime=None,
-                creator=creator,                worker=worker
+                price=price,
+                creator=creator,
+                worker=worker
             )
             labour.save()
 

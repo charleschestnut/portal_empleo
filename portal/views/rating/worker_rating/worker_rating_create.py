@@ -2,25 +2,25 @@ from django.shortcuts import render
 from portal.models import *
 from portal.forms import RatingForm
 from django.db.models import Q
-from portal.views import update_avg_rating as update
+from portal.views.rating import update_avg_rating as update
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def worker_rating_create(request, id):
     labour = LabourRequest.objects.get(id=int(id))
-
+    print(id)
     if request.method == 'POST':
         rating_form = RatingForm(request.POST)
         context = {}
+        print(rating_form.is_valid())
         if rating_form.is_valid():
-            labour = LabourRequest.objects.get(id=int(id))
             description = rating_form.cleaned_data['description']
-            puntuation = rating_form.cleaned_data['puntuation']
+            punctuation = rating_form.cleaned_data['punctuation']
             rater = Profile.objects.get(user_id=request.user.id)
             rated = labour.worker
 
             rating = WorkerRating(
-                puntuation=puntuation,
+                punctuation=punctuation,
                 description=description,
                 labour=labour,
                 rater_person=rater,
@@ -28,7 +28,7 @@ def worker_rating_create(request, id):
             )
             rating.save()
             # TODO: ACTUALIZAMOS LA VALORACIÓN MEDIA DEL RATED
-            update.update_avg_rating(rated.user_id, 'WORKER', rater.user_id)
+            update.update_avg_rating(rated.user_id, 'WORKER')
 
             my_ratings_filter = Q(rater_person__id=request.user.id) | Q(rated_person__id=request.user.id)
             my_worker_ratings = WorkerRating.objects.filter(my_ratings_filter)

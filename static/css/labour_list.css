@@ -1,0 +1,28 @@
+.labour-description{
+    color: #747274;
+    width: 70%;
+    margin: 0.5%;
+}
+
+.labour-description p{
+    text-indent: 5%;
+}
+
+.labour-name{
+    font-weight: bolder;
+}
+
+.labour-datetime p{
+    color: #747274;
+    font-size: smaller;
+}
+
+.labour-dates_down{
+    float: bottom;
+}
+
+.labour-rejected{
+    background-color: #ff3e3e;
+    color:ghostwhite;
+    font-weight: bold;
+}

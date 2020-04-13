@@ -10,8 +10,7 @@ def labour_accept(request, id):
 
     soy_trabajor = labour.worker.user.id == request.user.id
     esta_pendiente = labour.state == LABOUR_STATE_CHOICES[0]
-    print(soy_trabajor)
-    print(esta_pendiente)
+
     if(soy_trabajor and esta_pendiente):
         labour.state = LABOUR_STATE_CHOICES[1]
         labour.start_datetime = datetime.datetime.now()

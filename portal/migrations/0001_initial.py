@@ -51,7 +51,7 @@ class Migration(migrations.Migration):
             name='WorkerRating',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('puntuation', models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(10), django.core.validators.MinValueValidator(1)])),
+                ('punctuation', models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(10), django.core.validators.MinValueValidator(1)])),
                 ('description', models.TextField(blank=True, max_length=300, null=True)),
                 ('labour', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='portal.LabourRequest')),
                 ('rated_person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='workerRated', to='portal.Profile')),
@@ -81,7 +81,7 @@ class Migration(migrations.Migration):
             name='ClientRating',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('puntuation', models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(10), django.core.validators.MinValueValidator(1)])),
+                ('punctuation', models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(10), django.core.validators.MinValueValidator(1)])),
                 ('description', models.TextField(blank=True, max_length=300, null=True)),
                 ('labour', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='portal.LabourRequest')),
                 ('rated_person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rated', to='portal.Profile')),

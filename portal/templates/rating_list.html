@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block load_css %}
-        <link rel="stylesheet" type="text/css" href={% static 'portal_empleo/css/labour_list.css' %}>
+        <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
 {% endblock %}
 {% block content-title %}
     {{ title }}
@@ -17,7 +17,7 @@
                     {{ rating.rated_person.user.first_name }}
                 </div>
 
-                <p>Puntuation: {{ rating.puntuation }}</p>
+                <p>punctuation: {{ rating.punctuation }}</p>
                 <p>Description: {{ rating.description }}</p>
             </div>
         {% endfor %}

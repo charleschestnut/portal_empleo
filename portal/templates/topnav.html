@@ -1,7 +1,8 @@
-
+{% load static %}
 {% if request.user.administrator %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
         <a class="navbar-brand" href="{% url 'administrator_search' %}"> SEARCH </a>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -42,7 +43,11 @@
 {% else %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'search_list' %}">SEARCH</a>
+        <a class="navbar-brand" href="{% url 'search_list' %}">
+            <img src="{% static "images/loup-tal.png" %}" alt="Loup-tal Logo"/>
+        </a>
+
+
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mr-auto">

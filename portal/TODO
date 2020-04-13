@@ -32,16 +32,17 @@
 
 -- Etiqueta empty para las list.html
 
+-- Al crear un worker rating > 10 ó < 0 peta.
+
+-- Cambiar el nombre en las vista de Labours
 
 
- # # # #  # # # #  # # # # #
- # # # #  [ TO DO ERRORS ] #
- # # # #  # # # #  # # # # #
 
-ERROR: Al crear un worker rating > 10 ó < 0 peta.
+ # # # #  # # # #  # # # # # # # #
+ # # # #  [ TO DO ERRORS ] # # # #
+ # # # #  # # # #  # # # # # # # #
 
 En todos los formularios añadir redirect
-
 
 
 

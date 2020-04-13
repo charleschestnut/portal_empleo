@@ -1,4 +1,4 @@
-from .search_list import search_list
+from portal.views.search.search_list import search_list
 
 from portal.views.authentication.register import register
 
@@ -10,9 +10,10 @@ from portal.views.rating.client_rating.client_rating_create import client_rating
 from portal.views.rating.worker_rating.worker_rating_create import worker_rating_create
 from portal.views.rating.rating_list import rating_list
 
-from .populate import populate
+from .chat import chat_display, chat_list
+from .search import search_list
+from portal.views.other_methods.populate import populate
 
-from .chat_display import chat_display
-from .chat_list import chat_list
+from portal.views.chat.chat_list import chat_list
 
 from portal.views.admin import *

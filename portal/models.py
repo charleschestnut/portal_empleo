@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.db.models import Avg
 from django.conf import settings
@@ -20,6 +22,13 @@ class Administrator(models.Model):
                                 on_delete=models.CASCADE)
 
 
+class BadWord(models.Model):
+    name = models.CharField(max_length=30, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Banning(models.Model):
     start_datetime = models.DateField(auto_now_add=True)
     description = models.TextField(max_length=1000)
@@ -38,7 +47,7 @@ class Profile(models.Model):
     banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
 
     professions = models.ManyToManyField(Profession)
-    picture = models.ImageField(null=True, blank=True)
+    picture = models.ImageField(null=True, blank=True, upload_to=os.path.join(settings.MEDIA_ROOT, 'static/profile'))
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 on_delete=models.CASCADE)
 
@@ -49,16 +58,16 @@ class Profile(models.Model):
         return self.user.first_name + " -- " + self.city
 
     def get_client_rating_avg(self):
-        avg = ClientRating.objects.filter(rated_person__user_id=self.user_id).aggregate(Avg('puntuation')).get(
-            'puntuation__avg')
+        avg = ClientRating.objects.filter(rated_person__user_id=self.user_id).aggregate(Avg('punctuation')).get(
+            'punctuation__avg')
         if avg:
             return avg
         else:
             return 0.0
 
     def get_worker_rating_avg(self):
-        avg = WorkerRating.objects.filter(rated_person__user_id=self.user_id).aggregate(Avg('puntuation')).get(
-            'puntuation__avg')
+        avg = WorkerRating.objects.filter(rated_person__user_id=self.user_id).aggregate(Avg('punctuation')).get(
+            'punctuation__avg')
         if avg:
             return avg
         else:
@@ -73,6 +82,7 @@ LABOUR_STATE_CHOICES = [
     'FINISHED',
     'REJECTED',
     'CANCELLED',
+    'PAID_OUT',
 ]
 
 
@@ -81,9 +91,9 @@ class LabourRequest(models.Model):
     state = models.CharField(max_length=20)
     start_datetime = models.DateTimeField(null=True, blank=True)
     finish_datetime = models.DateTimeField(null=True, blank=True)
+    price = models.PositiveIntegerField(default=0, null=True, blank=True)
 
     banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
-
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='creator')
     worker = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='worker')
 
@@ -118,7 +128,7 @@ class ChatMessage(models.Model):
 
 
 class ClientRating(models.Model):
-    puntuation = models.IntegerField(
+    punctuation = models.IntegerField(
         default=0,
         validators=[
             MaxValueValidator(10),
@@ -134,11 +144,11 @@ class ClientRating(models.Model):
 
     def __str__(self):
         return self.rater_person.user.first_name + " -> " + self.rated_person.user.first_name + " -- " + str(
-            self.puntuation)
+            self.punctuation)
 
 
 class WorkerRating(models.Model):
-    puntuation = models.IntegerField(
+    punctuation = models.IntegerField(
         default=0,
         validators=[
             MaxValueValidator(10),
@@ -154,4 +164,4 @@ class WorkerRating(models.Model):
 
     def __str__(self):
         return self.rater_person.user.first_name + " -> " + self.rated_person.user.first_name + " -- " + str(
-            self.puntuation)
+            self.punctuation)

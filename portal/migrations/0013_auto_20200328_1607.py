@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='clientrating',
-            name='puntuation',
+            name='punctuation',
             field=models.IntegerField(default=0, validators=[django.core.validators.MaxValueValidator(10), django.core.validators.MinValueValidator(0)]),
         ),
         migrations.AlterField(
             model_name='workerrating',
-            name='puntuation',
+            name='punctuation',
             field=models.IntegerField(default=0, validators=[django.core.validators.MaxValueValidator(10), django.core.validators.MinValueValidator(0)]),
         ),
     ]

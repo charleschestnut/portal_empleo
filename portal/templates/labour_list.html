@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block load_css %}
-        <link rel="stylesheet" type="text/css" href={% static 'portal_empleo/css/labour_list.css' %}>
+        <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
 {% endblock %}
 {% block content-title %}
     {{ title }}
@@ -16,38 +16,63 @@
             <div class="row border border-dark rounded p-3 m-3">
                 <div class="col">
                     <div class="row labour-name">
-                        <p class="text-center"> {{ labour_request.worker.user.first_name }} </p>
+                        {% if request.user.username == labour_request.worker.user.username %}
+                            <a href="{% url 'profile_display' id=labour_request.creator.user.id %}">
+                                <h4 class="text-center"> {{ labour_request.creator.user.first_name }} </h4>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'profile_display' id=labour_request.worker.user.id %}">
+                                <h4 class="text-center"> {{ labour_request.worker.user.first_name }} </h4>
+                            </a>
+                        {% endif %}
                     </div>
 
                     <div class="row labour-description">
-                        <p class="w-100 p-3"> {{ labour_request.description}} </p>
+                        <p class="w-100 py-3"> {{ labour_request.description}} </p>
+                        <p> {{ labour_request.da }}</p>
                     </div>
 
                     <div class="row">
-                        <div class="col">
-                            <a href="{% url 'chat_display' id=labour_request.id %}" class="btn btn-success text-center"> CHAT </a>
+                        <div class="col d-flex justify-content-around">
+                            <a href="{% url 'chat_display' id=labour_request.id %}" class="btn btn-success text-center">
+                                <img src="{% static "images/chat.svg" %}" alt="chat-logo"/>
+                                CHAT </a>
                         </div>
 
                         {% if labour_request.state == 'PENDING'  and labour_request.worker.user.id == request.user.id%}
-                            <div class="col">
-                                <a href="{% url 'labour_accept' id=labour_request.id %}" class="btn btn-success text-center"> ACCEPT LABOUR </a>
+                            <div class="col d-flex justify-content-around">
+                                <a href="{% url 'labour_accept' id=labour_request.id %}" class="btn btn-success text-center">
+                                    <img src="{% static "images/accept.svg" %}" alt="accept-logo"/>
+                                    ACCEPT LABOUR
+                                </a>
                             </div>
-                            <div class="col">
-                                <a href="{% url 'labour_reject' id=labour_request.id %}" class="btn btn-danger text-center"> REJECT LABOUR </a>
+                            <div class="col d-flex justify-content-around">
+
+                                <a href="{% url 'labour_reject' id=labour_request.id %}" class="btn btn-danger text-center">
+                                    <img src="{% static "images/cancel.svg" %}" alt="reject-logo"/>
+                                    REJECT LABOUR </a>
                             </div>
 
-                        {% elif labour_request.state == 'IN_PROCESS' and labour_request.worker.user.id == request.user.id %}
+                        {% elif labour_request.state == 'PAID_OUT' and labour_request.worker.user.id == request.user.id %}
                             <div class="col">
                                 <a href="{% url 'labour_worker_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR AS WORKER </a>
                             </div>
                             <div class="col">
-                                <a href="{% url 'labour_cancel' id=labour_request.id %}" class="btn btn-danger text-center"> CANCEL </a>
+
+                                <a href="{% url 'labour_cancel' id=labour_request.id %}" class="btn btn-danger text-center">
+                                    <img src="{% static "images/reject.svg" %}" alt="reject-logo"/>
+                                    CANCEL
+                                </a>
                             </div>
 
-
-                         {% elif labour_request.state == 'IN_PROCESS' and labour_request.creator.user.id == request.user.id %}
+                        {% elif labour_request.state == 'PAID_OUT' and labour_request.creator.user.id == request.user.id %}
                             <div class="col">
                                 <a href="{% url 'labour_client_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR AS CLIENT </a>
+                            </div>
+
+                        {% elif labour_request.state == 'IN_PROCESS' and labour_request.creator.user.id == request.user.id %}
+                            <div class="col">
+                                <a href="{% url 'payment_process' id=labour_request.id %}" class="btn btn-danger text-center"> PAY LABOUR </a>
                             </div>
 
 
