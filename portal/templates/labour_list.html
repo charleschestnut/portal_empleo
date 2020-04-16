@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block load_css %}
-        <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
+        <link rel="stylesheet" type="text/css" href={% static 'css/labour_list.css' %}>
 {% endblock %}
 {% block content-title %}
     {{ title }}
@@ -11,115 +12,146 @@
 {% block content %}
     <div class="col">
     {% if labour_request_list %}
-
         {% for labour_request in labour_request_list %}
             <div class="row border border-dark rounded p-3 m-3">
-                <div class="col">
-                    <div class="row labour-name">
-                        {% if request.user.username == labour_request.worker.user.username %}
+                <div class="col-4" id="left">
+                    {% if request.user.username == labour_request.worker.user.username %}
+                        <div class="row justify-content-center">
+                            <a href="{% url 'profile_display' id=labour_request.creator.user.id %}">
+                                <img class="border border-dark rounded-circle" src="{{ labour_request.creator.picture.url }}" style="width:170px; height:170px"/>
+                            </a>
+                        </div>
+                        <div class="row justify-content-center">
                             <a href="{% url 'profile_display' id=labour_request.creator.user.id %}">
                                 <h4 class="text-center"> {{ labour_request.creator.user.first_name }} </h4>
                             </a>
-                        {% else %}
+                        </div>
+
+                    {% else %}
+                        <div class="row justify-content-center">
+                            <a href="{% url 'profile_display' id=labour_request.worker.user.id %}">
+                                <img class="border border-dark rounded-circle" src="{{ labour_request.worker.picture.url }}" style="width:170px; height:170px"/>
+                            </a>
+                        </div>
+                        <div class="row justify-content-center">
                             <a href="{% url 'profile_display' id=labour_request.worker.user.id %}">
                                 <h4 class="text-center"> {{ labour_request.worker.user.first_name }} </h4>
                             </a>
-                        {% endif %}
-                    </div>
+                        </div>
 
-                    <div class="row labour-description">
+                    {% endif %}
+
+                </div>
+                <div class="col" id="right">
+
+                    <div class="row p-2" id="description">
                         <p class="w-100 py-3"> {{ labour_request.description}} </p>
-                        <p> {{ labour_request.da }}</p>
                     </div>
 
-                    <div class="row">
-                        <div class="col d-flex justify-content-around">
+                    {% if labour_request.start_datetime %}
+                        <div class="row labour-datetime justify-content-end">
+                            <p> Start date: {{ labour_request.start_datetime }}</p>
+                        </div>
+                    {% endif %}
+
+                    {% if labour_request.finish_datetime %}
+                        <div class="row labour-datetime justify-content-end">
+                            <p> Finish date: {{ labour_request.finish_datetime }}</p>
+                        </div>
+                    {% endif %}
+
+                    <div class="row d-flex justify-content-end pt-4" id="action-buttons">
+
+                        <div class="m-1" id="chat-button">
                             <a href="{% url 'chat_display' id=labour_request.id %}" class="btn btn-success text-center">
                                 <img src="{% static "images/chat.svg" %}" alt="chat-logo"/>
-                                CHAT </a>
+                                CHAT
+                            </a>
                         </div>
 
                         {% if labour_request.state == 'PENDING'  and labour_request.worker.user.id == request.user.id%}
-                            <div class="col d-flex justify-content-around">
+                            <div class="m-1">
                                 <a href="{% url 'labour_accept' id=labour_request.id %}" class="btn btn-success text-center">
                                     <img src="{% static "images/accept.svg" %}" alt="accept-logo"/>
                                     ACCEPT LABOUR
                                 </a>
                             </div>
-                            <div class="col d-flex justify-content-around">
+                            <div class="m-1">
 
                                 <a href="{% url 'labour_reject' id=labour_request.id %}" class="btn btn-danger text-center">
                                     <img src="{% static "images/cancel.svg" %}" alt="reject-logo"/>
-                                    REJECT LABOUR </a>
+                                    REJECT LABOUR
+                                </a>
                             </div>
 
                         {% elif labour_request.state == 'PAID_OUT' and labour_request.worker.user.id == request.user.id %}
-                            <div class="col">
+                            <div class="m-1">
                                 <a href="{% url 'labour_worker_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR AS WORKER </a>
                             </div>
-                            <div class="col">
 
+                        {% elif labour_request.state == 'PAID_OUT' and labour_request.creator.user.id == request.user.id %}
+                            <div class="m-1">
+                                <a href="{% url 'labour_client_finish' id=labour_request.id %}" class="btn btn-danger text-center">
+                                    FINISH LABOUR AS CLIENT
+                                </a>
+                            </div>
+
+                        {% elif labour_request.state == 'IN_PROCESS' %}
+                            <div class="m-1">
                                 <a href="{% url 'labour_cancel' id=labour_request.id %}" class="btn btn-danger text-center">
                                     <img src="{% static "images/reject.svg" %}" alt="reject-logo"/>
                                     CANCEL
                                 </a>
                             </div>
 
-                        {% elif labour_request.state == 'PAID_OUT' and labour_request.creator.user.id == request.user.id %}
-                            <div class="col">
-                                <a href="{% url 'labour_client_finish' id=labour_request.id %}" class="btn btn-danger text-center"> FINISH LABOUR AS CLIENT </a>
-                            </div>
+                            {% if labour_request.creator.user.id == request.user.id %}
+                                <div class="m-1">
+                                    <a href="{% url 'payment_process' id=labour_request.id %}" class="btn btn-danger text-center">
+                                        PAY LABOUR
+                                    </a>
+                                </div>
+                            {% endif %}
 
-                        {% elif labour_request.state == 'IN_PROCESS' and labour_request.creator.user.id == request.user.id %}
-                            <div class="col">
-                                <a href="{% url 'payment_process' id=labour_request.id %}" class="btn btn-danger text-center"> PAY LABOUR </a>
-                            </div>
 
 
                         {% elif labour_request.state == 'END_WORKER' and labour_request.creator.user.id == request.user.id %}
-                            <div class="col">
-                                <a href="{% url 'labour_total_finish' id=labour_request.id %}" class="btn btn-danger text-center"> CONFIRM FINISH LABOUR </a>
+                            <div class="m-1">
+                                <a href="{% url 'labour_total_finish' id=labour_request.id %}" class="btn btn-danger text-center">
+                                    CONFIRM FINISH LABOUR AS CLIENT
+                                </a>
                             </div>
 
                         {% elif labour_request.state == 'END_CLIENT' and labour_request.worker.user.id == request.user.id %}
-                            <div class="col">
-                                <a href="{% url 'labour_total_finish' id=labour_request.id %}" class="btn btn-danger text-center"> CONFIRM FINISH LABOUR </a>
+                            <div class="m-1">
+                                <a href="{% url 'labour_total_finish' id=labour_request.id %}" class="btn btn-danger text-center">
+                                    CONFIRM FINISH LABOUR AS WORKER
+                                </a>
                             </div>
 
                         {% elif labour_request.state == 'FINISHED' %}
 
                             {% if labour_request.creator.user.id == request.user.id and not labour_request.workerrating %}
-                                <div class="col">
-                                    <a href="{% url 'worker_rating_create' id=labour_request.id %}" class="btn btn-danger text-center"> RATE WORKER </a>
+                                <div class="m-1">
+                                    <a href="{% url 'worker_rating_create' id=labour_request.id %}" class="btn btn-danger text-center">
+                                        RATE WORKER
+                                    </a>
                                 </div>
 
                             {% elif labour_request.worker.user.id == request.user.id and not labour_request.clientrating %}
-                                <div class="col">
-                                    <a href="{% url 'client_rating_create' id=labour_request.id %}" class="btn btn-danger text-center"> RATE CLIENT </a>
+                                <div class="m-1">
+                                    <a href="{% url 'client_rating_create' id=labour_request.id %}" class="btn btn-danger text-center">
+                                        RATE CLIENT
+                                    </a>
                                 </div>
                             {% endif %}
 
-
                         {% elif labour_request.state == 'REJECTED'%}
-                            <p class="text-light bg-danger rounded p-1 text-center"> REJECTED </p>
+                            <div class="m-1">
+                                <p class="text-light bg-danger rounded p-1 text-center"> REJECTED </p>
+                            </div>
                         {% endif %}
                     </div>
 
-                    <div class="row labour-dates_down mt-2">
-                        <div class="col">
-                            {% if labour_request.start_datetime %}
-                                <div class="row labour-datetime">
-                                    <p> It has started: {{ labour_request.start_datetime }}</p>
-                                </div>
-                            {% endif %}
-
-                            {% if labour_request.finish_datetime %}
-                                <div class="row labour-datetime">
-                                    <p> It has finished: {{ labour_request.finish_datetime }}</p>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
                 </div>
             </div>
         {% endfor %}

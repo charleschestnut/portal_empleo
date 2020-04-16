@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'paypal.standard.ipn',
     'payment',
+    "bootstrap4",
 ]
 
 MIDDLEWARE = [

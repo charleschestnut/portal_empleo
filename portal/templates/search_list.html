@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block add-tags %}
     {% load profile_tags %}
 {% endblock %}
@@ -44,14 +45,17 @@
             </div>
 
             <div class="form-row m-1">
-                <button type="submit" class="btn btn-primary"> Search </button>
+                <button type="submit" class="btn btn-primary w-100 p-1 m-3">
+                    Search
+                    <img src="{% static "images/search.svg" %}"/>
+                </button>
             </div>
         </form>
 
 
         <div class="row users-list">
             <div class="col">
-                {% if workers_list %}
+                {% if workers_list is not None %}
                     {% for worker in workers_list %}
                         <div class="row info-list border border-dark rounded p-3 m-3 bg-light">
                             <div class="col">
@@ -59,7 +63,7 @@
                                 <div class="row">
                                     {% if worker.picture %}
                                         <a href="{% url 'profile_display' id=worker.user_id %}">
-                                            <img src="{{ worker.picture.url }}"  style="width:100px; height: 100px"/>
+                                            <img src="{{ worker.picture.url }}"  style="width:200px; height: 200px"/>
                                         </a>
                                     {% endif %}
                                 </div>
@@ -89,7 +93,7 @@
                                 </div>
 
                                 <div class="row">
-                                    {% if request.user != worker.user %}
+                                    {% if request.user.is_authenticated and request.user != worker.user %}
                                         <div class="col">
                                             <a href="{% url 'labour_request' id=worker.user_id %}" class="btn btn-outline-secondary"> Request services</a>
                                         </div>
@@ -101,35 +105,36 @@
                                 </div>
                             </div>
                         </div>
+
+                    {% empty %}
+                        <div>
+                            <h3 class='text-center'> There's no users that fit with that search specifications </h3>
+                        </div>
                     {% endfor %}
 
-                    <div class="row pagination">
-                        {% load pagination_tag %}
-                        <div class="row step-links">
-                            <span class="step-links">
-                                {% if workers_list.has_previous %}
-                                    <a href="{% url_transform_pagination url=request.get_full_path page=1 %}"> First </a>
-                                    <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.previous_page_number %}"> Previous </a>
-                                {% endif %}
+                    {% if workers_list %}
+                        <div class="row pagination">
+                            {% load pagination_tag %}
+                            <div class="row step-links">
+                                <span class="step-links">
+                                    {% if workers_list.has_previous %}
+                                        <a href="{% url_transform_pagination url=request.get_full_path page=1 %}"> First </a>
+                                        <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.previous_page_number %}"> Previous </a>
+                                    {% endif %}
 
-                                <span class="current">
-                                    Page {{ workers_list.number }} of {{ workers_list.paginator.num_pages }}.
+                                    <span class="current">
+                                        Page {{ workers_list.number }} of {{ workers_list.paginator.num_pages }}.
+                                    </span>
+
+                                    {% if workers_list.has_next %}
+                                        <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.next_page_number %}"> Next </a>
+                                        <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.paginator.num_pages %}"> Last </a>
+                                    {% endif %}
                                 </span>
-
-                                {% if workers_list.has_next %}
-                                    <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.next_page_number %}"> Next </a>
-                                    <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.paginator.num_pages %}"> Last </a>
-                                {% endif %}
-                            </span>
+                            </div>
                         </div>
-                    </div>
-
-                {% else %}
-                    <div>
-                        <h3 class='text-center'> There's no users that fit with that search specifications </h3>
-                    </div>
+                    {% endif %}
                 {% endif %}
-
             </div>
         </div>
     </div>

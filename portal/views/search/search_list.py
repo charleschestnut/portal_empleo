@@ -3,18 +3,17 @@ from django.core.paginator import Paginator
 from portal.models import *
 
 
-
 def search_list(request):
     profession_choices = Profession.objects.all()
-    context = {'profession_choices': profession_choices}
     profession_selected = request.GET.get('profession', '')
     city_selected = request.GET.get('city', '')
     rating_order = request.GET.get('rating_order', '')
     min_punctuation = request.GET.get('min_punctuation', '')
     page = request.GET.get('page', 1)
     workers_list = None
+    context = {'profession_choices': profession_choices}
 
-    if profession_selected or city_selected or min_punctuation or rating_order:
+    if city_selected or rating_order or min_punctuation or profession_selected:
         if profession_selected:
             workers_list = Profile.objects.filter(professions__pk=profession_selected)
 
@@ -27,7 +26,6 @@ def search_list(request):
         if min_punctuation:
             if workers_list is None:
                 workers_list = Profile.objects.filter(worker_rating_avg__gte=min_punctuation)
-                print(workers_list)
             else:
                 workers_list = workers_list.filter(worker_rating_avg__gte=min_punctuation)
 

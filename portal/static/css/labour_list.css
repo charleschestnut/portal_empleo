@@ -17,12 +17,19 @@
     font-size: smaller;
 }
 
-.labour-dates_down{
-    float: bottom;
-}
-
 .labour-rejected{
     background-color: #ff3e3e;
     color:ghostwhite;
     font-weight: bold;
+}
+
+.labour-list-img{
+    width:100px;
+    height: 100px;
+}
+
+#action-buttons{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
