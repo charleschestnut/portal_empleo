@@ -63,11 +63,6 @@ workerRating_list = [
 
 
 def populate(request):
-
-    print("----------------------------")
-    print("STATING POPULATION DATA BASE")
-    print("----------------------------")
-
     def load_users():
         for user_fields in users_list:
             user = User.objects.create_user(username=user_fields[0],
@@ -165,9 +160,5 @@ def populate(request):
     load_labourRequests()
     load_labourChats()
     create_superuser()
-
-    print("----------------------------")
-    print("POPULATION DATA BASE FINISHED")
-    print("----------------------------")
 
     return render(request, 'populate.html')

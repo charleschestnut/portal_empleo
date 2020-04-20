@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="485a5073-a323-4fe6-8026-5ea1e0ee32c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/css/profile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/images/login.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/images/logout.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/images/profile.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/images/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/css/chat_display.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/images/double-check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/images/sent-check.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static/css/labour_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/portal/static/css/labour_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/labour_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/profile_display.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/profile_display.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/search_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/search_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/topnav.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/topnav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/views/search/search_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/search/search_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal_empleo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal_empleo/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/chat_display.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/chat_display.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/chat/chat_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/chat/chat_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/other_methods/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/other_methods/populate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/update_avg_rating.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/update_avg_rating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/worker_rating/worker_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/worker_rating/worker_rating_create.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +49,7 @@
         <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Python Script" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -72,26 +66,27 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/portal/static/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/portal/static/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\css" />
-      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\images" />
-      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\templates" />
-      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views" />
-      <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\portal\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\images" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\static\images" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\static\portal_empleo\images" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\static\media" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\images" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\css" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\templates" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views" />
+      <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\portal\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -234,7 +229,8 @@
       <workItem from="1586802281141" duration="5389000" />
       <workItem from="1586880619250" duration="6463000" />
       <workItem from="1586892434431" duration="6669000" />
-      <workItem from="1586972598089" duration="16854000" />
+      <workItem from="1586972598089" duration="17389000" />
+      <workItem from="1587407481695" duration="12919000" />
     </task>
     <servers />
   </component>

@@ -1,28 +1,46 @@
 {% extends 'base.html' %}
-
-{% block content-title %}
-    {{ title }}
+{% load static %}
+{% block load_css %}
+    <link rel="stylesheet" href="{% static 'css/chat_display.css' %}"/>
 {% endblock %}
-
 {% block content %}
-    <div class="row mb-3">
-        <div class="col">
+    <div class="row top-area border border-secondary mt-3 b-2">
+        <div class="col title-person p-3 my-auto ml-3 border-right border-secondary br-2">
+            <h3>
+                {{ title }}
+            </h3>
+        </div>
+        <div class="col-4 labour-title text-center my-auto p-3">
+            <h3>
+                Labour Title
+            </h3>
+        </div>
+    </div>
+    <div class="row messages-area mb-3 border border-top border-bottom">
+        <div class="col messages-list">
             {% if messages_list %}
                 {% for message in messages_list %}
                     {% if request.user.id == message.owner.user_id %}
-                        <div class="row bg-secondary border border-dark rounded p-2 m-1 w-75 float-right justify-content-end">
-                            <div class="col">
-                                <p class="text-white w-auto">{{ message.content }}</p>
+                            <div class="row pr-2 m-1 justify-content-end">
+                                <div class="col col-md-auto px-1 owner-message border border-dark rounded">
+                                    <div class="d-flex justify-content-end mh-100 py-2">
+                                        {% if message.is_read %}
+                                            <p class="col m-auto text-right mw-100 hideOverflow">{{ message.content }}</p>
+                                            <img class="card-img-bottom" src="{% static "images/double-check.svg" %}" alt="Double check"/>
+                                        {% else %}
+                                            <p class="col col-md-auto text-right mw-100 hideOverflow">{{ message.content }}</p>
+                                            <img class="card-img-bottom" src="{% static "images/sent-check.svg" %}" alt="Sent-check"/>
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col w-25 m-0">
-                                {% if message.is_read %}
-                                    <p class="text-right absolute-bottom"> Read </p>
-                                {% endif %}
-                            </div>
-                        </div>
                     {% else %}
-                        <div class="row bg-info border border-dark rounded p-2 m-1 w-75 justify-content-start">
-                            <p class="text-center w-auto">{{ message.content }}</p>
+                        <div class="row pr-2 m-1 justify-content-start">
+                                <div class="col col-md-auto px-1 other-message border border-dark rounded">
+                                    <div class="d-flex justify-content-end mh-100 py-2">
+                                        <p class="col w-auto col-md-auto m-0 mw-100 hideOverflow">{{ message.content }}</p>
+                                    </div>
+                                </div>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -34,21 +52,23 @@
                 </div>
             {% endif %}
         </div>
-    </div>
 
-    <div class="row m-3 p-3">
-        <form action="{% url 'chat_display' labour_id %}" method="post">
+    </div>
+    <div class="row form-sender">
+        <form action="{% url 'chat_display' labour_id %}" method="post" class="w-100">
             {% csrf_token %}
-            <div class="col">
-                <div class="row">
-                    <div class="col">
+            <div class="col forms">
+                <div class="row forms">
+                    <div class="col forms m-0 p-0 border border-dark b-2">
                         {{ chat_message_form.content }}
                     </div>
-                    <div class="col text-center w-50">
-                        <button class="btn btn-success text-center p-4" type="submit"> Send message </button>
+                    <div class="col text-center col-4 ml-0 p-0">
+                        <button class="btn btn-success text-center h-100 w-100" type="submit"> Send message </button>
                     </div>
                 </div>
             </div>
+
         </form>
     </div>
+
 {% endblock %}

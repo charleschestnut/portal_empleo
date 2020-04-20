@@ -8,11 +8,9 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def worker_rating_create(request, id):
     labour = LabourRequest.objects.get(id=int(id))
-    print(id)
     if request.method == 'POST':
         rating_form = RatingForm(request.POST)
         context = {}
-        print(rating_form.is_valid())
         if rating_form.is_valid():
             description = rating_form.cleaned_data['description']
             punctuation = rating_form.cleaned_data['punctuation']

@@ -1,0 +1,26 @@
+div.messages-area{
+    overflow-y:auto;
+    max-height: 500px;
+}
+
+div.owner-message{
+    background-color: lightblue;
+    max-width: 50%;
+}
+
+div.other-message{
+    background-color: lightgreen;
+    max-width: 50%;
+}
+
+div.b-2{
+    border-width:2px !important;
+}
+
+div.br-2{
+    border-width:2px !important;
+}
+.hideOverflow {
+    word-wrap: break-word;
+
+}

@@ -8,15 +8,13 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def chat_display(request, id):
     def remove_exceed_messages(list):
-        if len(messages_list) > 10:
-            for message in messages_list[:(len(messages_list) - 10)]:
+        if len(messages_list) > 100:
+            for message in messages_list[:(len(messages_list) - 100)]:
                 message.delete()
         return list
 
     def read_new_messages(list):
         im_worker = actual_profile == actual_chat.labour.worker
-        print("I AM WORKER? -> " + str(im_worker))
-        print("list before if:", list)
         if not im_worker:
             messages_to_read = list.filter(owner__id=actual_chat.labour.worker_id).filter(is_read=False)
             messages_to_read.update(is_read=True)
@@ -24,12 +22,8 @@ def chat_display(request, id):
             messages_to_read = list.filter(owner__id=actual_chat.labour.creator_id).filter(is_read=False)
             messages_to_read.update(is_read=True)
 
-        print("LIST: " + str(list))
-        for messag in messages_to_read:
-            print(messag.is_read)
-            messag.save()
-            print(messag.is_read)
-        print("LIST AFTER SAVE:" +str(list))
+        for message_simple in messages_to_read:
+            message_simple.save()
 
     actual_profile = Profile.objects.get(user_id=request.user.id)
     actual_chat = LabourChat.objects.get(labour__id=int(id))
@@ -38,9 +32,11 @@ def chat_display(request, id):
         context = {}
 
         if actual_profile == actual_chat.labour.creator:
-            title = "Chat with " + str(actual_chat.labour.worker.user.first_name)
+            title = "Chat with " + str(actual_chat.labour.worker.user.first_name) \
+                    + " " + str(actual_chat.labour.creator.user.last_name)
         else:
-            title = "Chat with " + str(actual_chat.labour.creator.user.first_name)
+            title = "Chat with " + str(actual_chat.labour.creator.user.first_name) \
+                    + " " + str(actual_chat.labour.creator.user.last_name)
         context['title'] = title
 
         if request.method == 'POST':
