@@ -29,11 +29,11 @@ profiles_list = [
 
 labourRequests_list = [
     #description, state, start_datetime, finish_datetime, creator, worker, price
-    ['Ayúdame en esta tarea, por favor.', 'PENDING', None, None, 'daniel', 'alejandro', 100],
-    ['Córtame jamón, por favor.', 'REJECTED', None, None, 'deku', 'dionisio', 10],
-    ['Arréglame el ordenador, por favor.', 'FINISHED', 'yesterday', 'two days ago', 'elvira', 'alejandro', 0],
-    ['Hazme un plan de ejercicio de piernas, por favor.', 'IN_PROCESS', 'yesterday', None, 'juanmarco', 'daniel', 15],
-    ['Hazme una maqueta de aviones.', 'PAID_OUT', 'yesterday', None, 'juanmarco', 'daniel', 10]
+    ['Ayúdame en esta tarea, por favor.', 'PENDING', None, None, 'daniel', 'alejandro', 100, "Ayudante para tareas del hogar"],
+    ['Córtame jamón, por favor.', 'REJECTED', None, None, 'deku', 'dionisio', 10, "Cortador de jamón"],
+    ['Arréglame el ordenador, por favor.', 'FINISHED', 'yesterday', 'two days ago', 'elvira', 'alejandro', 0, "Virus en el PC"],
+    ['Hazme un plan de ejercicio de piernas, por favor.', 'IN_PROCESS', 'yesterday', None, 'juanmarco', 'daniel', 15, "Ejercicios para piernas"],
+    ['Hazme una maqueta de aviones.', 'PAID_OUT', 'yesterday', None, 'juanmarco', 'daniel', 10, "Maqueta avión"]
 ]
 
 labourChat_list = [
@@ -115,6 +115,7 @@ def populate(request):
             creator = Profile.objects.get(user_id=creator_user.id)
             worker = Profile.objects.get(user_id=worker_user.id)
             labourRequest = LabourRequest.objects.create(
+                title=lr_fields[7],
                 description=lr_fields[0],
                 state=lr_fields[1],
                 start_datetime=personal_datetime(lr_fields[2]),

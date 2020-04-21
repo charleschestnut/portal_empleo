@@ -31,7 +31,7 @@ class UserRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email')
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -51,10 +51,17 @@ class UserEditForm(forms.ModelForm):
         }
 
 
-
 class LabourRequestForm(forms.Form):
+    title = forms.CharField(widget=forms.TextInput, max_length=100)
     description = forms.CharField(widget=forms.Textarea, max_length=1000)
     price = forms.IntegerField(min_value=0, max_value=9999)
+
+
+class ImageForm(forms.ModelForm):
+    image = forms.ImageField(label='Image')
+    class Meta:
+        model = LabourImage
+        fields = ('image',)
 
 
 class RatingForm(forms.Form):

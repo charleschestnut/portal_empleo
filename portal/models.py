@@ -87,6 +87,7 @@ LABOUR_STATE_CHOICES = [
 
 
 class LabourRequest(models.Model):
+    title = models.TextField(max_length=100, null=False, blank=False)
     description = models.TextField(max_length=1000, null=True, blank=True)
     state = models.CharField(max_length=20)
     start_datetime = models.DateTimeField(null=True, blank=True)
@@ -97,8 +98,14 @@ class LabourRequest(models.Model):
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='creator')
     worker = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='worker')
 
+
     def __str__(self):
         return "Labour request created by " + self.creator.user.first_name + "->" + self.worker.user.first_name
+
+
+class LabourImage(models.Model):
+    image = models.ImageField(null=False, blank=False, upload_to=os.path.join(settings.MEDIA_ROOT, 'static/labour_images'))
+    labour = models.ForeignKey(LabourRequest, on_delete=models.CASCADE, related_name='labour')
 
 
 class LabourChat(models.Model):

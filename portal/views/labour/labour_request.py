@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.forms import modelformset_factory
 from django.contrib.auth.decorators import login_required
-from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES, LabourChat
-from portal.forms import LabourRequestForm
+from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES, LabourChat, LabourImage
+from portal.forms import LabourRequestForm, ImageForm
 import datetime
 
 
@@ -9,15 +10,19 @@ import datetime
 @login_required
 def labour_request(request, id):
     worker = Profile.objects.get(user_id=int(id))
+    ImageFormSet = modelformset_factory(LabourImage,
+                                        form=ImageForm, extra=5)
+    # 'extra' means the number of photos that you can upload  ^
     if request.method == 'POST':
         labour_form = LabourRequestForm(request.POST)
+        multiple_images = request.FILES.getlist('images')
         context = {}
 
         if labour_form.is_valid() and worker.user.id != request.user.id:
             creator = Profile.objects.get(user_id=request.user.id)
             state = LABOUR_STATE_CHOICES[0]
             description = labour_form.cleaned_data['description']
-            price=labour_form.cleaned_data['price']
+            price = labour_form.cleaned_data['price']
 
             labour = LabourRequest(
                 description=description,
@@ -30,9 +35,15 @@ def labour_request(request, id):
             )
             labour.save()
 
+            for pic in multiple_images:
+                # this helps to not crash if the user
+                # do not upload all the photos
+                if pic:
+                    picture = LabourImage(image=pic, labour=labour)
+                    picture.save()
             #Creamos el chat una vez se crea la Labour Request
             crear_chat(labour.id)
-
+            #TODO Cambiar redirec a la lista de request enviados/pendientes
             return redirect('profile_display', id=worker.user_id)
         context['labour_request_form'] = labour_form
         context['worker'] = worker
@@ -40,7 +51,9 @@ def labour_request(request, id):
     else:
         context = {'worker': worker}
         labour_form = LabourRequestForm()
+        formset = ImageFormSet(queryset=LabourImage.objects.none())
         context['labour_request_form'] = labour_form
+        context['formset'] = formset
 
     return render(request, 'labour_request_request.html', context)
 

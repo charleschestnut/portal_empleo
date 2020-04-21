@@ -12,6 +12,7 @@ def profile_edit(request):
         profile_form = ProfileForm(instance=request.user.profile,
                                     data=request.POST,
                                     files=request.FILES)
+        print(request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()

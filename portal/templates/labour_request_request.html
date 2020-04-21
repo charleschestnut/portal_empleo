@@ -7,9 +7,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <form action="." method="post">
+    <form action="." method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ labour_request_form|crispy }}
+        <input type="file" name="images" class="form-control-file" id="note-image" multiple>
 
         <button type="submit" class="btn btn-outline-secondary">
             Send request
