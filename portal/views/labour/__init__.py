@@ -12,3 +12,4 @@ from .labour_total_finish import labour_total_finish
 from .labour_worker_finish import labour_worker_finish
 from .labour_client_finish import labour_client_finish
 
+from .labour_display import labour_display

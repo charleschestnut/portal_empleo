@@ -13,6 +13,7 @@ urlpatterns = [
     path('profile/edit/', views.profile.profile_edit, name='profile_edit'),
     path('profile/delete/', views.profile.profile_delete, name='profile_delete'),
 
+    path('labour-request/<int:id>', views.labour_display, name='labour_display'),
     path('labour-request/request/<int:id>/', views.labour_request, name='labour_request'),
     path('labour-request/pending/', views.labour_list_pending, name='labour_list_pending'),
     path('labour-request/in-process/', views.labour_list_in_process, name='labour_list_in_process'),

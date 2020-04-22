@@ -11,55 +11,70 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row" id="title">
+    <div class="row my-2 border border" id="title">
         <div class="col">
             <div class="row" id="title">
-                <h3>
-                    {{ labour.title }}
-                </h3>
+                <h4>TITLE{{ labour.title }}</h4>
             </div>
             <div class="row" id="labour-creator-name">
-                <h4>
-                    {{ labour.creator.user.first_name }} {{ labour.creator.user.last_name }}
-                </h4>
+                <h4> {{ labour.creator.user.first_name }} {{ labour.creator.user.last_name }}</h4>
             </div>
         </div>
 
-        <div class="col" id="buttons">
-            <div class="row">
+        <div class="col align-items-center border" id="buttons">
+            <div class="row justify-content-md-center m-1">
                 <a href="" class="btn btn-success text-center">
-                    BUTTON LABOUR
+                    BUTTON LABOUR 1
+                </a>
+            </div>
+            <div class="row justify-content-md-center m-1">
+                <a href="" class="btn btn-success text-center">
+                    BUTTON LABOUR 2
+                </a>
+            </div>
+            <div class="row justify-content-md-center m-1">
+                <a href="" class="btn btn-success text-center">
+                    BUTTON LABOUR 3
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="row" id="pictures-carousel">
+    <div class="row my-2 border" id="pictures-carousel">
         <div class="col">
-            <div class="row" id="carousel">
-                {% for picture in pictures %}
-                    <div>
-
+            <div class="carousel slide" data-ride="carousel" id="carousel-pics">
+                <ul class="carousel-indicators">
+                    {% for image in labour_images %}
+                        {% if forloop.first %}
+                            <li data-target="#carousel-pics" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                        {% else %}
+                            <li data-target="#carousel-pics" data-slide-to="{{ forloop.counter0 }}"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <div class="carousel-inner w-100">
+                    {% for image in labour_images|slice:":{{ labour_images|length }}" %}
+                        {% if forloop.first %}
+                            <div class="carousel-item active">
+                        {% else %}
+                            <div class="carousel-item">
+                        {% endif %}
+                            <img src="{{ image.image.url }}" style="max-height: 300px; max-width: 300px;"/>
+                        </div>
+                    {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-            <div class="row" id="carousel-buttons">
-                <div class="col" id="turn-left">
-                    <a href="" class="btn btn-success text-center">
-                        TURN LEFT
-                    </a>
-                </div>
-                <div class="col" id="turn-right">
-                    <a href="" class="btn btn-success text-center">
-                        TURN RIGHT
-                    </a>
-                </div>
+                <a class="carousel-control-prev" href="#carousel-pics" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-pics"  data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="row" id="description">
-        <div class="col">
+    <div class="row my-2 border" id="description">
+        <div class="col d-inline border">
             <div class="row" id="start-finish-datetimes">
                 <p> {{ labour.start_datetime }} - {{ labour.finish_datetime }} </p>
             </div>
@@ -67,7 +82,7 @@
                 <p> {{ labour.description }} </p>
             </div>
         </div>
-        <div class="col">
+        <div class="col d-inline border">
             <div class="row" id="labour-price">
                 {{ labour.price }}
             </div>
@@ -78,14 +93,18 @@
             </div>
         </div>
     </div>
-    <div class="row" id="ratings">
+    <div class="row my-2 border" id="ratings">
         <div class="col">
+            {% if worker_rating %}
             <div class="row" id="rating-worker">
                 {{ worker_rating }}
             </div>
-            <div class="row" id="rating-creator">
+            {% endif %}
+            {% if client_rating %}
+            <div class="row" id="rating-client">
                 {{ client_rating }}
             </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

@@ -69,6 +69,12 @@
                             </a>
                         </div>
 
+                        <div class="m-1" id="chat-button">
+                            <a href="{% url 'labour_display' id=labour_request.id %}" class="btn btn-success text-center">
+                                SEE MORE
+                            </a>
+                        </div>
+
                         {% if labour_request.state == 'PENDING'  and labour_request.worker.user.id == request.user.id%}
                             <div class="m-1">
                                 <a href="{% url 'labour_accept' id=labour_request.id %}" class="btn btn-success text-center">
