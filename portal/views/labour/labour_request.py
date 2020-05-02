@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
-from django.forms import modelformset_factory
-from django.contrib.auth.decorators import login_required
-from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES, LabourChat, LabourImage
-from portal.forms import LabourRequestForm, ImageForm
 import datetime
 
+from django.contrib.auth.decorators import login_required
+from django.forms import modelformset_factory
+from django.shortcuts import render, redirect
+
+from portal.forms import LabourRequestForm, ImageForm
+from portal.models import LabourRequest, Profile, LABOUR_STATE_CHOICES, LabourChat, LabourImage
 
 
 @login_required
@@ -23,8 +24,10 @@ def labour_request(request, id):
             state = LABOUR_STATE_CHOICES[0]
             description = labour_form.cleaned_data['description']
             price = labour_form.cleaned_data['price']
+            title = labour_form.cleaned_data['title']
 
             labour = LabourRequest(
+                title=title,
                 description=description,
                 state=state,
                 start_datetime=None,
@@ -41,9 +44,8 @@ def labour_request(request, id):
                 if pic:
                     picture = LabourImage(image=pic, labour=labour)
                     picture.save()
-            #Creamos el chat una vez se crea la Labour Request
+            # Creamos el chat una vez se crea la Labour Request
             crear_chat(labour.id)
-            #TODO Cambiar redirec a la lista de request enviados/pendientes
             return redirect('profile_display', id=worker.user_id)
         context['labour_request_form'] = labour_form
         context['worker'] = worker

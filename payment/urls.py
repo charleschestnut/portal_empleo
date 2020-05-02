@@ -1,7 +1,6 @@
-from django.conf.urls import url
-from . import views
 from django.urls import path
 
+from . import views
 
 urlpatterns = [
     path('done/', views.payment_done, name='done'),

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block load_css %}
-        <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
 {% endblock %}
 
 {% block content-title %}
@@ -28,7 +28,8 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p><a href="{% url 'chat_display' id=chat.labour.id %}" class="btn btn-success text-center"> ENTER </a></p>
+                            <p><a href="{% url 'chat_display' id=chat.labour.id %}" class="btn btn-success text-center">
+                                ENTER </a></p>
                         </div>
                     </div>
                 </div>

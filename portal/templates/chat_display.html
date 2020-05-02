@@ -12,7 +12,7 @@
         </div>
         <div class="col-4 labour-title text-center my-auto p-3">
             <h3>
-                Labour Title
+                {{ labour_title }}
             </h3>
         </div>
     </div>
@@ -21,26 +21,28 @@
             {% if messages_list %}
                 {% for message in messages_list %}
                     {% if request.user.id == message.owner.user_id %}
-                            <div class="row pr-2 m-1 justify-content-end">
-                                <div class="col col-md-auto px-1 owner-message border border-dark rounded">
-                                    <div class="d-flex justify-content-end mh-100 py-2">
-                                        {% if message.is_read %}
-                                            <p class="col m-auto text-right mw-100 hideOverflow">{{ message.content }}</p>
-                                            <img class="card-img-bottom" src="{% static "images/double-check.svg" %}" alt="Double check"/>
-                                        {% else %}
-                                            <p class="col col-md-auto text-right mw-100 hideOverflow">{{ message.content }}</p>
-                                            <img class="card-img-bottom" src="{% static "images/sent-check.svg" %}" alt="Sent-check"/>
-                                        {% endif %}
-                                    </div>
+                        <div class="row pr-2 m-1 justify-content-end">
+                            <div class="col col-md-auto px-1 owner-message border border-dark rounded">
+                                <div class="d-flex justify-content-end mh-100 py-2">
+                                    {% if message.is_read %}
+                                        <p class="col m-auto text-right mw-100 hideOverflow">{{ message.content }}</p>
+                                        <img class="card-img-bottom" src="{% static "images/double-check.svg" %}"
+                                             alt="Double check" style="max-height: 20px; max-width: 20px; "/>
+                                    {% else %}
+                                        <p class="col col-md-auto text-right mw-100 hideOverflow">{{ message.content }}</p>
+                                        <img class="card-img-bottom" src="{% static "images/sent-check.svg" %}"
+                                             alt="Sent-check" style="max-height: 20px; max-width: 20px; "/>
+                                    {% endif %}
                                 </div>
                             </div>
+                        </div>
                     {% else %}
                         <div class="row pr-2 m-1 justify-content-start">
-                                <div class="col col-md-auto px-1 other-message border border-dark rounded">
-                                    <div class="d-flex justify-content-end mh-100 py-2">
-                                        <p class="col w-auto col-md-auto m-0 mw-100 hideOverflow">{{ message.content }}</p>
-                                    </div>
+                            <div class="col col-md-auto px-1 other-message border border-dark rounded">
+                                <div class="d-flex justify-content-end mh-100 py-2">
+                                    <p class="col w-auto col-md-auto m-0 mw-100 hideOverflow">{{ message.content }}</p>
                                 </div>
+                            </div>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -63,7 +65,7 @@
                         {{ chat_message_form.content }}
                     </div>
                     <div class="col text-center col-4 ml-0 p-0">
-                        <button class="btn btn-success text-center h-100 w-100" type="submit"> Send message </button>
+                        <button class="btn btn-success text-center h-100 w-100" type="submit"> Send message</button>
                     </div>
                 </div>
             </div>

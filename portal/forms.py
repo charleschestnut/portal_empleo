@@ -59,6 +59,7 @@ class LabourRequestForm(forms.Form):
 
 class ImageForm(forms.ModelForm):
     image = forms.ImageField(label='Image')
+
     class Meta:
         model = LabourImage
         fields = ('image',)
@@ -75,3 +76,11 @@ class ChatMessageForm(forms.Form):
             'cols': 100,
             'rows': 3,
             'class': 'form-control'}), max_length=1000)
+
+
+class OfferForm(forms.Form):
+    price = forms.IntegerField(min_value=0)
+
+    class Meta:
+        model = LabourOffer
+        fields = ('price',)

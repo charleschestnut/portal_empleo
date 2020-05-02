@@ -11,17 +11,23 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row my-2 border border" id="title">
+    <div class="row my-2 border border bg-light" id="title">
         <div class="col">
-            <div class="row" id="title">
-                <h4>TITLE{{ labour.title }}</h4>
+            <div class="row m-2" id="title">
+                <h2 class="">{{ labour.title }}</h2>
             </div>
-            <div class="row" id="labour-creator-name">
-                <h4> {{ labour.creator.user.first_name }} {{ labour.creator.user.last_name }}</h4>
+            <div class="row m-2" id="labour-creator-name">
+                <h5 class="text-secondary">
+                    Client: {{ labour.creator.user.first_name }} {{ labour.creator.user.last_name }}</h5>
+            </div>
+            <div class="row m-2" id="labour-worker-name">
+                <h5 class="text-secondary">
+                    Worker: {{ labour.worker.user.first_name }} {{ labour.worker.user.last_name }}</h5>
+
             </div>
         </div>
 
-        <div class="col align-items-center border" id="buttons">
+        <div class="col-4 align-items-center border" id="buttons">
             <div class="row justify-content-md-center m-1">
                 <a href="" class="btn btn-success text-center">
                     BUTTON LABOUR 1
@@ -40,10 +46,10 @@
         </div>
     </div>
 
-    <div class="row my-2 border" id="pictures-carousel">
-        <div class="col">
-            <div class="carousel slide" data-ride="carousel" id="carousel-pics">
-                <ul class="carousel-indicators">
+    <div class="row my-5 justify-content-center" id="pictures-carousel">
+        <div class="col col-8">
+            <div class="carousel slide col" data-ride="carousel" id="carousel-pics">
+                <ul class="carousel-indicators col">
                     {% for image in labour_images %}
                         {% if forloop.first %}
                             <li data-target="#carousel-pics" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
@@ -52,59 +58,152 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-                <div class="carousel-inner w-100">
-                    {% for image in labour_images|slice:":{{ labour_images|length }}" %}
+                <div class="carousel-inner col-md-auto">
+                    {% for image in labour_images|slice:":{{ 1 }}" %}
                         {% if forloop.first %}
-                            <div class="carousel-item active">
+                            <div class="carousel-item active row justify-content-center">
                         {% else %}
-                            <div class="carousel-item">
+                            <div class="carousel-item row justify-content-center">
                         {% endif %}
-                            <img src="{{ image.image.url }}" style="max-height: 300px; max-width: 300px;"/>
-                        </div>
+                    <img src="{{ image.image.url }}" class="border border-dark"
+                         style="max-height: 400px; max-width: 800px;"/>
+                    </div>
                     {% endfor %}
                     </div>
-                <a class="carousel-control-prev" href="#carousel-pics" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-pics"  data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
+                    <a class="carousel-control-prev" href="#carousel-pics" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-pics" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row my-2 border" id="description">
-        <div class="col d-inline border">
-            <div class="row" id="start-finish-datetimes">
-                <p> {{ labour.start_datetime }} - {{ labour.finish_datetime }} </p>
+        <div class="row my-3 border bg-light" id="description">
+            <div class="col d-inline border">
+                <div class="row m-2 pt-2" id="start-finish-datetimes">
+                    <p class="text-justify font-weight-bold"> {{ labour.start_datetime }}
+                        - {{ labour.finish_datetime }} </p>
+                </div>
+                <div class="row m-2" id="description">
+                    <p> {{ labour.description }} </p>
+                </div>
             </div>
-            <div class="row" id="description">
-                <p> {{ labour.description }} </p>
+            <div class="col d-inline border">
+                {% if im_worker and can_offer_worker %}
+                    <div class="row justify-content-center" id="labour-price">
+                        <p class="text-center text-bold">Actual price: <h5> {{ labour.price }}</h5></p>
+                    </div>
+
+                    {% if labour.offer %}
+                        <div class="row justify-content-center offer-price">
+                            <p class="text-center text-bold">Offer price: <h5> {{ labour.offer.price }}</h5> </p>
+                        </div>
+                    {% endif %}
+
+                    <div class="row  my-2">
+                        <div class="col">
+                            <div class="row mh-50 justify-content-center" id="labour-request-offer">
+                                <a href="{% url 'labour_accept' id=labour.id %}" class="btn btn-success text-center">
+                                    ACCEPT OFFER
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="row mh-50 justify-content-center" id="labour-request-offer">
+                                <a href="{% url 'labour_reject' id=labour.id %}" class="btn btn-danger text-center">
+                                    DECLINE OFFER
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center my-2">
+                        <div class="row mh-50" id="labour-request-offer">
+                            <a href="{% url 'labour_offer' id=labour.id %}" class="btn btn-primary text-center">
+                                CREATE COUNTEROFFER
+                            </a>
+                        </div>
+                    </div>
+
+                {% elif im_creator and can_offer_client %}
+
+                    <div class="row justify-content-center my-2" id="labour-price">
+                        <p class="text-center text-bold">Actual price: <h5> {{ labour.price }}</h5></p>
+                    </div>
+
+                    <div class="row justify-content-center offer-price my-2">
+                        <p class="text-center text-bold">Offer price: <h5> {{ labour.offer.price }}</h5> </p>
+                    </div>
+
+                    <div class="row justify-content-around my-2">
+                        <div class="col">
+                            <div class="row mh-50 justify-content-center" id="labour-request-offer">
+                                <a href="{% url 'labour_accept' id=labour.id %}" class="btn btn-success text-center">
+                                    ACCEPT OFFER
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="row mh-50 justify-content-center" id="labour-request-offer">
+                                <a href="{% url 'labour_reject' id=labour.id %}" class="btn btn-danger text-center">
+                                    DECLINE OFFER
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="row mh-50" id="labour-request-offer">
+                            <a href="{% url 'labour_offer' id=labour.id %}" class="btn btn-primary text-center">
+                                CREATE COUNTEROFFER
+                            </a>
+                        </div>
+                    </div>
+                {% elif im_worker and can_offer_client %}
+                    <div class="row justify-content-center my-2">
+                        <p class="text-center text-bold">Actual price: <h5> {{ labour.price }}</h5></p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <p class="text-center text-bold">Offered as: <h5> {{ labour.offer.price }}</h5></p>
+                    </div>
+
+                {% elif im_creator and can_offer_worker %}
+                    <div class="row justify-content-center my-2">
+                        <p class="text-center text-bold">Actual price: <h5> {{ labour.price }}</h5></p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <p class="text-center text-bold">Offered as: <h5> {{ labour.offer.price }}</h5></p>
+                    </div>
+
+                {% else %}
+                    <div class="row justify-content-center">
+                        <p class="text-center text-bold">Price: <h5> {{ labour.price }}</h5></p>
+                    </div>
+                {% endif %}
             </div>
         </div>
-        <div class="col d-inline border">
-            <div class="row" id="labour-price">
-                {{ labour.price }}
-            </div>
-            <div class="row" id="labour-request-offer">
-                <a href="" class="btn btn-success text-center">
-                    BUTTON OFFER LABOUR
-                </a>
+        <div class="row my-2 border" id="ratings">
+            <div class="col">
+                {% if worker_rating %}
+                    <div class="row" id="rating-worker">
+                        {{ worker_rating }}
+                    </div>
+                {% endif %}
+                {% if client_rating %}
+                    <div class="row" id="rating-client">
+                        {{ client_rating }}
+                    </div>
+                {% endif %}
             </div>
         </div>
-    </div>
-    <div class="row my-2 border" id="ratings">
-        <div class="col">
-            {% if worker_rating %}
-            <div class="row" id="rating-worker">
-                {{ worker_rating }}
-            </div>
-            {% endif %}
-            {% if client_rating %}
-            <div class="row" id="rating-client">
-                {{ client_rating }}
-            </div>
-            {% endif %}
-        </div>
-    </div>
 {% endblock %}

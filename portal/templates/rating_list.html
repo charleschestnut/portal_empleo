@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block load_css %}
-        <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'portal/../static/css/labour_list.css' %}>
 {% endblock %}
 {% block content-title %}
     {{ title }}
@@ -10,23 +10,23 @@
 
 {% block content %}
     <div>
-    {% if rating_list %}
-        {% for rating in rating_list %}
-            <div class="info-list">
-                <div>
-                    {{ rating.rated_person.user.first_name }}
-                </div>
+        {% if rating_list %}
+            {% for rating in rating_list %}
+                <div class="info-list">
+                    <div>
+                        {{ rating.rated_person.user.first_name }}
+                    </div>
 
-                <p>punctuation: {{ rating.punctuation }}</p>
-                <p>Description: {{ rating.description }}</p>
+                    <p>punctuation: {{ rating.punctuation }}</p>
+                    <p>Description: {{ rating.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div>
+                <h3 class="text-center">
+                    There's no ratings right now.
+                </h3>
             </div>
-        {% endfor %}
-    {%  else %}
-        <div>
-            <h3 class="text-center">
-                There's no ratings right now.
-            </h3>
-        </div>
-    {% endif %}
+        {% endif %}
     </div>
 {% endblock %}

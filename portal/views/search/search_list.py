@@ -1,5 +1,6 @@
-from django.shortcuts import render
 from django.core.paginator import Paginator
+from django.shortcuts import render
+
 from portal.models import *
 
 
@@ -21,8 +22,7 @@ def search_list(request):
             if workers_list is None:
                 workers_list = Profile.objects.filter(city__search=city_selected)
             else:
-                workers_list = workers_list.filter(city__search=city_selected)\
-
+                workers_list = workers_list.filter(city__search=city_selected)
         if min_punctuation:
             if workers_list is None:
                 workers_list = Profile.objects.filter(worker_rating_avg__gte=min_punctuation)

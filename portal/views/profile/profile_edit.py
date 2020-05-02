@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from portal.forms import UserEditForm, ProfileForm
 from django.shortcuts import render, redirect
+
+from portal.forms import UserEditForm, ProfileForm
 
 
 @login_required
@@ -10,8 +11,8 @@ def profile_edit(request):
         user_form = UserEditForm(instance=request.user,
                                  data=request.POST)
         profile_form = ProfileForm(instance=request.user.profile,
-                                    data=request.POST,
-                                    files=request.FILES)
+                                   data=request.POST,
+                                   files=request.FILES)
         print(request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()

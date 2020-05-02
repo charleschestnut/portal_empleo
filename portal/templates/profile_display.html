@@ -18,27 +18,34 @@
     <div class="row border-dark rounded m-1 p-1" id="profile-column">
         <div class="col">
             <div class="row justify-content-center p-3" id="profile-picture">
-                    {% if worker.picture %}
-                        <img class="border border-dark rounded-circle" src="{{ worker.picture.url }}" style="width:200px; height:200px" alt="Profile picture"/>
-                    {% endif %}
+                {% if worker.picture %}
+                    <img class="border border-dark rounded-circle" src="{{ worker.picture.url }}"
+                         style="width:200px; height:200px" alt="Profile picture"/>
+                {% endif %}
             </div>
 
             <div class="row justify-content-center my-1" id="profile-name">
-                    <p class="font-weight-bold">{{ worker.user.first_name }} {{ worker.user.last_name}}  |  {{ worker.city }}</p>
+                <p class="font-weight-bold">{{ worker.user.first_name }} {{ worker.user.last_name }}
+                    | {{ worker.city }}</p>
             </div>
-            <div class="row" >
+            <div class="row">
                 <div class="col d-flex justify-content-around">
-                    <a class='btn btn-outline-secondary m-1 ' href="{% url 'rating_list' type='worker_to_me' id=worker.user_id %}"> Average rating as a worker:  {{ worker.worker_rating_avg}}</a>
+                    <a class='btn btn-outline-secondary m-1 '
+                       href="{% url 'rating_list' type='worker_to_me' id=worker.user_id %}"> Average rating as a
+                        worker: {{ worker.worker_rating_avg }}</a>
                 </div>
 
                 {% if request.user.is_authenticated and request.user.username != worker.user.username %}
                     <div class="col d-flex justify-content-around" id="profile-request-service">
-                        <a href="{% url 'labour_request' worker.user_id %}" class="btn btn-success m-1"> Request Services </a>
+                        <a href="{% url 'labour_request' worker.user_id %}" class="btn btn-success m-1"> Request
+                            Services </a>
                     </div>
                 {% endif %}
 
                 <div class="col d-flex justify-content-around">
-                    <a class='btn btn-outline-secondary m-1' href="{% url 'rating_list' type='client_to_me' id=worker.user_id %}"> Average rating as a client:  {{ worker.client_rating_avg}} </a>
+                    <a class='btn btn-outline-secondary m-1'
+                       href="{% url 'rating_list' type='client_to_me' id=worker.user_id %}"> Average rating as a
+                        client: {{ worker.client_rating_avg }} </a>
                 </div>
 
             </div>
@@ -74,7 +81,8 @@
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <a href="{% url 'password_change' %}" class="btn btn-outline-secondary m-1"> Change Password </a>
+                            <a href="{% url 'password_change' %}" class="btn btn-outline-secondary m-1"> Change
+                                Password </a>
                         </div>
 
                         <div class="d-flex justify-content-end">

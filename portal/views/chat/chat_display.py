@@ -1,8 +1,10 @@
-from portal.models import Profile, LabourChat, ChatMessage
-from portal.forms import ChatMessageForm
-from django.shortcuts import render, redirect
 import datetime
+
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
+from portal.forms import ChatMessageForm
+from portal.models import Profile, LabourChat, ChatMessage, LabourRequest
 
 
 @login_required
@@ -69,7 +71,6 @@ def chat_display(request, id):
 
             chat_message_form = ChatMessageForm()
             messages_list = ChatMessage.objects.filter(chat_id=actual_chat.id).order_by('send_datetime')
-
             # Nos quedamos sólo con los cinco últimos mensajes
             messages_list = remove_exceed_messages(messages_list)
             read_new_messages(messages_list)
@@ -77,7 +78,7 @@ def chat_display(request, id):
             context['chat_message_form'] = chat_message_form
             context['labour_id'] = int(id)
             context['messages_list'] = messages_list
-
+            context["labour_title"] = LabourRequest.objects.get(id=int(id)).title
 
             return render(request, 'chat_display.html', context)
 

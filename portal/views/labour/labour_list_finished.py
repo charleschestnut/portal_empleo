@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from portal.models import LabourRequest, LABOUR_STATE_CHOICES
-from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.shortcuts import render
+
+from portal.models import LabourRequest, LABOUR_STATE_CHOICES
 
 
 @login_required

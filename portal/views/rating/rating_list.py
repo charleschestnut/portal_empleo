@@ -1,6 +1,7 @@
 from django.shortcuts import render
+
 from portal.models import WorkerRating, ClientRating, Profile
-from django.db.models import Q
+
 
 def rating_list(request, type, id):
     context = {}
@@ -13,6 +14,5 @@ def rating_list(request, type, id):
         rating_list = ClientRating.objects.none()
 
     context['rating_list'] = rating_list
-
 
     return render(request, 'rating_list.html', context)

@@ -2,15 +2,162 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="485a5073-a323-4fe6-8026-5ea1e0ee32c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/portal/static/css/chat_display.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/images/double-check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal/static/images/sent-check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/migrations/0019_auto_20200423_1737.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/images/labour_offer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/static/images/welcome-image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/templates/labour_offer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal/views/labour/labour_offer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/002-dsc3279_ix56kVp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__1BrjU6o.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__1bo27wN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__2YqiVjg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__2kQ985A.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__3hW9DkH.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__4CjLJuB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__4iyz6TW.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__6ANkFG0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__6vPYyP3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__8WxPEHO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__9wXHHak.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__AloOm7m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__BTm9xvO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__DAcItE1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__GmfKoFh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__Hp00EV2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__Jz0cN5S.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__MD4MPpP.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__MOIlLR6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__OQvGmpn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__PPEO0iI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__X5TGs3E.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__YKCZdDc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__dcDet8w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__rM4W6fa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__tKQ4PT9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__tyDG69e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/Captura_de__uPEf9kQ.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/labour_images/descarga.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_5cCUxXv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_5hV0P7l" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_IgRK3eJ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_PBIc4TN" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_Y38cGF7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_gyYosOI" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Alejandro_Castaño_del_zxniY5m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_0fJW1ms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_97YP5a4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_ZslcmNR" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_dyWk0Oe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_pWIWiYh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_vSwpock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Daniel_Castaño_del_Ca_xWIKbOm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_N9TMrQa" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_OSrOvqX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_ZqvCxGM" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_ed4KpjL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_n72MZZu" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_pZVGFLe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Deku_Castaño_Del_Cast_yKgo5oj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_6LjNl68" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_9SX1Vhj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_LhOJuBV" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_OQT1JIY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_rb0AN1V" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_vF9hGjG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Dionisio_Castaño_Agua_yEqJMcf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_3Dmzcee" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_BGbNt6P" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_Fxicw83" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_O3mLfAV" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_VZ4WJrQ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_hDLQZzn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Elvira_del_Castillo_G_y9AYqu6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_1anPeqb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_3E39Ime" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_FntxI0f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_NXcWgME" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_RtJJO22" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_b0Lnagv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/media/static/profile/Juan_Marco_Domínguez_q8TtKvr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/views/cancelled.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/views/cancelled.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/views/done.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/views/done.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/views/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/views/process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment/views/sucessful.py" beforeDir="false" afterPath="$PROJECT_DIR$/payment/views/sucessful.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/TODO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/chat_display.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/chat_display.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/chat_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/chat_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/client_rating_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/client_rating_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/labour_display.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_display.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/labour_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/labour_request_request.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/labour_request_request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/profile_display.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/profile_display.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/profile_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/profile_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/rating_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/rating_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/registration/logged_out.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/registration/logged_out.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/registration/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/registration/password_reset_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/registration/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/registration/password_reset_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/registration/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/registration/password_reset_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/registration/password_reset_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/search_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/search_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/topnav.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/topnav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/worker_rating_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/worker_rating_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_labour_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_labour_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_profession_delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_profession_delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_profession_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_profession_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_rating_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_rating_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_user_ban.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_user_ban.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/admin/admin_user_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/admin/admin_user_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/authentication/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/authentication/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/authentication/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/authentication/register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/authentication/user_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/authentication/user_login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views/chat/chat_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/chat/chat_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/chat/chat_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/chat/chat_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_accept.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_accept.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_cancel.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_cancel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_client_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_client_finish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_list_finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_finished.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_list_in_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_in_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_list_pending.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_pending.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_list_sent.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_list_sent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_reject.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_reject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_total_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_total_finish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/labour/labour_worker_finish.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/labour/labour_worker_finish.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/other_methods/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/other_methods/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/other_methods/check_banned_user_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/other_methods/check_banned_user_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views/other_methods/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/other_methods/populate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/other_methods/user_is_banned.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/other_methods/user_is_banned.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile/profile_delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/profile_delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile/profile_display.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/profile_display.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/profile/profile_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/profile/profile_edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/client_rating/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/client_rating/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/client_rating/client_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/client_rating/client_rating_create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/rating_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/rating_list.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views/rating/update_avg_rating.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/update_avg_rating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/rating/worker_rating/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/worker_rating/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/views/rating/worker_rating/worker_rating_create.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/rating/worker_rating/worker_rating_create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/search/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/search/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/views/search/search_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/views/search/search_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/js/vendor/jquery/jquery.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,9 +194,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="HTML File" />
-        <option value="Python Script" />
         <option value="CSS File" />
+        <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -71,7 +218,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -83,8 +230,8 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\images" />
-      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\css" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\templates" />
+      <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\static\css" />
       <recent name="C:\Users\carlo\PycharmProjects\project_tfg\portal\views" />
       <recent name="C:\Users\carlo\PycharmProjects\portal_empleo\portal\views" />
     </key>
@@ -230,7 +377,22 @@
       <workItem from="1586880619250" duration="6463000" />
       <workItem from="1586892434431" duration="6669000" />
       <workItem from="1586972598089" duration="17389000" />
-      <workItem from="1587407481695" duration="12919000" />
+      <workItem from="1587407481695" duration="13602000" />
+      <workItem from="1587455785820" duration="14294000" />
+      <workItem from="1587512379972" duration="362000" />
+      <workItem from="1587549484570" duration="17762000" />
+      <workItem from="1587597737792" duration="117000" />
+      <workItem from="1587652969131" duration="5756000" />
+      <workItem from="1587733589269" duration="16907000" />
+      <workItem from="1587817809372" duration="2414000" />
+      <workItem from="1587922641219" duration="3310000" />
+      <workItem from="1587992529471" duration="2909000" />
+      <workItem from="1588092680274" duration="25000" />
+      <workItem from="1588096249897" duration="1904000" />
+      <workItem from="1588151225748" duration="164000" />
+      <workItem from="1588185460727" duration="7104000" />
+      <workItem from="1588288484859" duration="1277000" />
+      <workItem from="1588426299757" duration="1000000" />
     </task>
     <servers />
   </component>

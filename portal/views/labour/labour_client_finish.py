@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
-from portal.models import LabourRequest, LABOUR_STATE_CHOICES
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+
+from portal.models import LabourRequest, LABOUR_STATE_CHOICES
 
 
 @login_required
@@ -10,8 +11,7 @@ def labour_client_finish(request, id):
     soy_cliente = labour.creator.user.id == request.user.id
     esta_en_marcha = labour.state == LABOUR_STATE_CHOICES[1]
 
-
-    if(soy_cliente and esta_en_marcha):
+    if soy_cliente and esta_en_marcha:
         labour.state = LABOUR_STATE_CHOICES[3]
         labour.save()
 

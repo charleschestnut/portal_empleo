@@ -1,7 +1,9 @@
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+
 from portal.forms import LoginForm
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -15,7 +17,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated '\
+                    return HttpResponse('Authenticated ' \
                                         'successfully')
                 else:
                     return HttpResponse('Disabled account')
@@ -23,7 +25,7 @@ def user_login(request):
                 return HttpResponse('Invalid login')
     else:
         form = LoginForm()
-    context= {'form':form}
+    context = {'form': form}
     return render(request, 'portal/login.html', context)
 
 # authenticate() comprueba las credenciales del usuario y devuelve un usuario

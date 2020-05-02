@@ -25,6 +25,7 @@ urlpatterns = [
     path('labour-request/worker-finish/<int:id>', views.labour_worker_finish, name='labour_worker_finish'),
     path('labour-request/creator-finish/<int:id>', views.labour_client_finish, name='labour_client_finish'),
     path('labour-request/total-finish/<int:id>', views.labour_total_finish, name='labour_total_finish'),
+    path('labour-request/offer/<int:id>', views.labour_offer, name='labour_offer'),
 
     path('labour-request/worker-rating/<int:id>', views.worker_rating_create, name='worker_rating_create'),
     path('labour-request/client-rating/<int:id>', views.client_rating_create, name='client_rating_create'),

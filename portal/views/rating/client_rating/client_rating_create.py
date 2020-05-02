@@ -1,9 +1,10 @@
-from django.shortcuts import render
-from portal.models import *
-from portal.forms import RatingForm
-from django.db.models import Q
-from portal.views.rating import update_avg_rating as update
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
+from django.shortcuts import render
+
+from portal.forms import RatingForm
+from portal.models import *
+from portal.views.rating import update_avg_rating as update
 
 
 @login_required
@@ -28,7 +29,6 @@ def client_rating_create(request, id):
                 rated_person=rated,
             )
             rating.save()
-            # TODO: ACTUALIZAMOS LA VALORACIÓN MEDIA DEL RATED
             update.update_avg_rating(rated.user_id, 'CLIENT')
 
             my_ratings_filter = Q(rater_person__id=request.user.id) | Q(rated_person__id=request.user.id)

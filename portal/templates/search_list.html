@@ -7,115 +7,121 @@
     Search List
 {% endblock %}
 
-{% block content-title %}
-    Professionals Search
-{% endblock %}
 
 {% block content %}
 
+    <div class="row justify-content-center">
+        <div class="col col-8">
+            <div class="row">
+                <img src="{% static "images/welcome-image.svg" %}" class="img-responsive" style="max-width: 100%"/>
+            </div>
+            <div class="">
+                <form method="GET" action="{% url 'search_list' %}"> {% csrf_token %}
 
-    <div class="col-8">
-        <form method="GET" action="{% url 'search_list' %}"> {% csrf_token %}
+                    <div class="form-row m-1">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="city"
+                               placeholder="Seville">
+                    </div>
 
-            <div class="form-row m-1">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="city" placeholder="Seville">
+                    <div class="form-row m-1">
+                        <label for="profession">Profession</label>
+                        <select class="custom-select my-1 mr-sm-2" id="type" name="profession">
+                            <option selected="true" disabled="disabled">Category</option>
+                            {% for profession in profession_choices %}
+                                <option value="{{ profession.id }}"> {{ profession.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-row m-1">
+                        <label for="min_punctuation">Min. punctuation </label>
+                        <input type="number" class="custom-select my-1 mr-sm-2" name="min_punctuation" min="0" max="10"
+                               default="0">
+                    </div>
+
+                    <div class="form-row m-1">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="rating_order" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Sort by rating punctuation</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row m-1">
+                        <button type="submit" class="btn btn-primary w-100 p-1 m-3">
+                            Search
+                            <img src="{% static "images/search.svg" %}"/>
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <div class="form-row m-1">
-                <label for="profession">Profession</label>
-                <select class="custom-select my-1 mr-sm-2" id="type" name="profession">
-                    <option selected="true" disabled="disabled">Category</option>
-                        {% for profession in profession_choices %}
-                            <option value="{{ profession.id }}"> {{ profession.name }}</option>
-                        {% endfor %}
-                </select>
-            </div>
 
-            <div class="form-row m-1">
-                <label for="min_punctuation">Min. punctuation </label>
-                <input type="number" class="custom-select my-1 mr-sm-2" name="min_punctuation" min="0" max="10" default="0">
-            </div>
+            <div class="row users-list">
+                <div class="col">
+                    {% if workers_list is not None %}
+                        {% for worker in workers_list %}
+                            <div class="row info-list border border-dark rounded p-3 m-3 bg-light">
+                                <div class="col">
 
-            <div class="form-row m-1">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="rating_order" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Sort by rating punctuation</label>
-                </div>
-            </div>
+                                    <div class="row">
+                                        {% if worker.picture %}
+                                            <a href="{% url 'profile_display' id=worker.user_id %}">
+                                                <img src="{{ worker.picture.url }}" style="width:200px; height: 200px"/>
+                                            </a>
+                                        {% endif %}
+                                    </div>
 
-            <div class="form-row m-1">
-                <button type="submit" class="btn btn-primary w-100 p-1 m-3">
-                    Search
-                    <img src="{% static "images/search.svg" %}"/>
-                </button>
-            </div>
-        </form>
-
-
-        <div class="row users-list">
-            <div class="col">
-                {% if workers_list is not None %}
-                    {% for worker in workers_list %}
-                        <div class="row info-list border border-dark rounded p-3 m-3 bg-light">
-                            <div class="col">
-
-                                <div class="row">
-                                    {% if worker.picture %}
-                                        <a href="{% url 'profile_display' id=worker.user_id %}">
-                                            <img src="{{ worker.picture.url }}"  style="width:200px; height: 200px"/>
-                                        </a>
-                                    {% endif %}
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="row">
-                                            <p>Name: {{ worker.user.first_name }} {{ worker.user.last_name }} </p>
-                                        </div>
-                                        <div class="row">
-                                            <p>City: {{ worker.city }}</p>
-                                        </div>
-                                        <div class="row mb-1 mr-1">
-                                            {% for profession in worker.professions.all %}
-                                                <div class="col-auto mr-1 text-justify border border-dark rounded text-light bg-dark">
-                                                    {{ profession.name }}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                        <div class="row">
-                                            <p>punctuation: {{ worker.worker_rating_avg }}</p>
-                                        </div>
-                                        <div class="row">
-                                            <p class="description"> {{ worker.description }}</p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="row">
+                                                <p>Name: {{ worker.user.first_name }} {{ worker.user.last_name }} </p>
+                                            </div>
+                                            <div class="row">
+                                                <p>City: {{ worker.city }}</p>
+                                            </div>
+                                            <div class="row mb-1 mr-1">
+                                                {% for profession in worker.professions.all %}
+                                                    <div class="col-auto mr-1 text-justify border border-dark rounded text-light bg-dark">
+                                                        {{ profession.name }}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <div class="row">
+                                                <p>punctuation: {{ worker.worker_rating_avg }}</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="description"> {{ worker.description }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    {% if request.user.is_authenticated and request.user != worker.user %}
+                                    <div class="row">
+                                        {% if request.user.is_authenticated and request.user != worker.user %}
+                                            <div class="col">
+                                                <a href="{% url 'labour_request' id=worker.user_id %}"
+                                                   class="btn btn-outline-secondary"> Request services</a>
+                                            </div>
+                                        {% endif %}
+
                                         <div class="col">
-                                            <a href="{% url 'labour_request' id=worker.user_id %}" class="btn btn-outline-secondary"> Request services</a>
+                                            <a href="{% url 'profile_display' id=worker.user_id %}"
+                                               class="btn btn-outline-secondary"> See profile</a>
                                         </div>
-                                    {% endif %}
-
-                                    <div class="col">
-                                        <a href="{% url 'profile_display' id=worker.user_id %}" class="btn btn-outline-secondary"> See profile</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    {% empty %}
-                        <div>
-                            <h3 class='text-center'> There's no users that fit with that search specifications </h3>
-                        </div>
-                    {% endfor %}
+                        {% empty %}
+                            <div>
+                                <h3 class='text-center'> There's no users that fit with that search specifications </h3>
+                            </div>
+                        {% endfor %}
 
-                    {% if workers_list %}
-                        <div class="row pagination">
-                            {% load pagination_tag %}
-                            <div class="row step-links">
+                        {% if workers_list %}
+                            <div class="row pagination">
+                                {% load pagination_tag %}
+                                <div class="row step-links">
                                 <span class="step-links">
                                     {% if workers_list.has_previous %}
                                         <a href="{% url_transform_pagination url=request.get_full_path page=1 %}"> First </a>
@@ -131,13 +137,15 @@
                                         <a href="{% url_transform_pagination url=request.get_full_path page=workers_list.paginator.num_pages %}"> Last </a>
                                     {% endif %}
                                 </span>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                     {% endif %}
-                {% endif %}
+                </div>
             </div>
         </div>
     </div>
+
 
 
 {% endblock %}

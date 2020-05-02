@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content-title %}
+    {{ labour.title }}'s new price offer
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form action="{% url 'labour_offer' labour.id %}" method="post">
+        {% csrf_token %}
+
+        {{ labour_offer_form|crispy }}
+
+        <button type="submit" class="btn btn-outline-secondary">
+            Send new offer
+        </button>
+        <button class="btn btn-outline-secondary" onclick="history.back();">
+            Cancel
+        </button>
+
+    </form>
+{% endblock %}

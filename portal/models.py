@@ -83,7 +83,13 @@ LABOUR_STATE_CHOICES = [
     'REJECTED',
     'CANCELLED',
     'PAID_OUT',
+    'OFFER_WORKER',
+    'OFFER_CLIENT',
 ]
+
+
+class LabourOffer(models.Model):
+    price = models.PositiveIntegerField(default=0, null=True, blank=True)
 
 
 class LabourRequest(models.Model):
@@ -94,7 +100,7 @@ class LabourRequest(models.Model):
     finish_datetime = models.DateTimeField(null=True, blank=True)
     price = models.PositiveIntegerField(default=0, null=True, blank=True)
 
-    banning = models.OneToOneField(Banning, null=True, blank=True, on_delete=True)
+    offer = models.OneToOneField(LabourOffer, null=True, blank=True, on_delete=True)
     creator = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='creator')
     worker = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='worker')
 

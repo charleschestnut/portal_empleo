@@ -1,8 +1,7 @@
-from portal.forms import LoginForm, UserRegistrationForm, ProfileForm
-from portal.models import Profile
-from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
 
+from portal.forms import UserRegistrationForm, ProfileForm
 
 
 def register(request):

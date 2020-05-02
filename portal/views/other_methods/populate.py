@@ -1,11 +1,13 @@
-from portal.models import *
-from django.contrib.auth.models import User
-from django.shortcuts import render
 from datetime import date, timedelta
+
+from django.contrib.auth.models import User
 from django.core.files import File
+from django.shortcuts import render
+
+from portal.models import *
 
 users_list = [
-    #username, email, password, first_name, last_name
+    # username, email, password, first_name, last_name
     ['daniel', 'daniel@gmail.com', 'password_d', 'Daniel', 'Castaño del Castillo'],
     ['elvira', 'elvira@gmail.com', 'password_e', 'Elvira', 'del Castillo González'],
     ['alejandro', 'alejandro@gmail.com', 'password_a', 'Alejandro', 'Castaño del Castillo'],
@@ -17,27 +19,40 @@ users_list = [
 professions_list = ['Electricidad', 'Jardinería', 'Carpintería', 'Fontenería', 'Hostelería', 'Albañilería']
 
 profiles_list = [
-    #birthdate, dni, city, description, professions, sin-imágenes, user
-    ['1984-07-04', '00000001A', 'Utretch', "Daniel's description", ['Jardinería', 'Electricidad'], 'daniel', './static/media/population/profile_photo_1.jpg'],
-    ['1966-01-27', '00000002B', 'Huelva', "Elvira's description", ['Carpintería', 'Electricidad'], 'elvira', './static/media/population/profile_photo_2.jpg'],
-    ['1984-07-04', '00000003C', 'Sevilla', "Alejandro's description", ['Hostelería', 'Electricidad'], 'alejandro', './static/media/population/profile_photo_3.jpg'],
-    ['1984-07-04', '00000004D', 'Huelva', "Dionisio's description", ['Jardinería', 'Albañilería'], 'dionisio', './static/media/population/profile_photo_4.jpg'],
-    ['1984-07-04', '00000005E', 'Con Migo', "Deku's description", ['Electricidad', 'Albañilería'], 'deku', './static/media/population/profile_photo_5.jpg'],
-    ['1984-07-04', '00000006F', 'Huelva', "Juan Marco's description", ['Hostelería'], 'juanmarco', './static/media/population/profile_photo_6.jpg'],
+    # birthdate, dni, city, description, professions, sin-imágenes, user
+    ['1984-07-04', '00000001A', 'Utretch', "Daniel's description", ['Jardinería', 'Electricidad'], 'daniel',
+     './static/media/population/profile_photo_1.jpg'],
+    ['1966-01-27', '00000002B', 'Huelva', "Elvira's description", ['Carpintería', 'Electricidad'], 'elvira',
+     './static/media/population/profile_photo_2.jpg'],
+    ['1984-07-04', '00000003C', 'Sevilla',
+     "Buenas, mi nombre es Alejandro y soy una persona con muchos años de experien"
+     "cia en el ámbito de la hostelería. He trabajado todos los veranos en el serv"
+     "icio de restaurantes de la Costa del Sol y por la zona de la sierra de Huel"
+     "va. Actualmente estoy trabajando de electricista en el negocio familiar por"
+     " la zona de Sevilla capital y alrededores.",
+     ['Hostelería', 'Electricidad'], 'alejandro', './static/media/population/profile_photo_3.jpg'],
+    ['1984-07-04', '00000004D', 'Huelva', "Dionisio's description", ['Jardinería', 'Albañilería'], 'dionisio',
+     './static/media/population/profile_photo_4.jpg'],
+    ['1984-07-04', '00000005E', 'Con Migo', "Deku's description", ['Electricidad', 'Albañilería'], 'deku',
+     './static/media/population/profile_photo_5.jpg'],
+    ['1984-07-04', '00000006F', 'Huelva', "Juan Marco's description", ['Hostelería'], 'juanmarco',
+     './static/media/population/profile_photo_6.jpg'],
 ]
 
-
 labourRequests_list = [
-    #description, state, start_datetime, finish_datetime, creator, worker, price
-    ['Ayúdame en esta tarea, por favor.', 'PENDING', None, None, 'daniel', 'alejandro', 100, "Ayudante para tareas del hogar"],
+    # description, state, start_datetime, finish_datetime, creator, worker, price
+    ['Ayúdame en esta tarea, por favor.', 'PENDING', None, None, 'daniel', 'alejandro', 100,
+     "Ayudante para tareas del hogar"],
     ['Córtame jamón, por favor.', 'REJECTED', None, None, 'deku', 'dionisio', 10, "Cortador de jamón"],
-    ['Arréglame el ordenador, por favor.', 'FINISHED', 'yesterday', 'two days ago', 'elvira', 'alejandro', 0, "Virus en el PC"],
-    ['Hazme un plan de ejercicio de piernas, por favor.', 'IN_PROCESS', 'yesterday', None, 'juanmarco', 'daniel', 15, "Ejercicios para piernas"],
+    ['Arréglame el ordenador, por favor.', 'FINISHED', 'yesterday', 'two days ago', 'elvira', 'alejandro', 0,
+     "Virus en el PC"],
+    ['Hazme un plan de ejercicio de piernas, por favor.', 'IN_PROCESS', 'yesterday', None, 'juanmarco', 'daniel', 15,
+     "Ejercicios para piernas"],
     ['Hazme una maqueta de aviones.', 'PAID_OUT', 'yesterday', None, 'juanmarco', 'daniel', 10, "Maqueta avión"]
 ]
 
 labourChat_list = [
-    #creation_datetime, last_message_datetime, labour
+    # creation_datetime, last_message_datetime, labour
     ['two days ago', 'two days ago', 'Ayúdame en esta tarea, por favor.'],
     ['two days ago', 'two days ago', 'Córtame jamón, por favor.'],
     ['two days ago', 'two days ago', 'Arréglame el ordenador, por favor.'],
@@ -47,17 +62,17 @@ labourChat_list = [
 ]
 
 chatMessage_list = [
-    #Content, send_datetime, chat, owner
+    # Content, send_datetime, chat, owner
     []
 ]
 
 clientRating_list = [
-    #punctuation, description, labour, rater_person, rated_person
+    # punctuation, description, labour, rater_person, rated_person
     []
 ]
 
 workerRating_list = [
-    #punctuation, description, labour, rater_person, rated_person
+    # punctuation, description, labour, rater_person, rated_person
     []
 ]
 
@@ -70,15 +85,13 @@ def populate(request):
                                             password=user_fields[2],
                                             first_name=user_fields[3],
                                             last_name=user_fields[4]
-            )
+                                            )
             user.save()
-
 
     def load_proffesions():
         for prof in professions_list:
             profession = Profession.objects.create(name=prof)
             profession.save()
-
 
     def load_profiles():
         for p_fields in profiles_list:
@@ -94,7 +107,7 @@ def populate(request):
                 worker_rating_avg=0.0
             )
             pic = File(open(p_fields[6], "rb"))
-            profile.picture.save(profile.user.first_name+" "+profile.user.last_name, pic, save=True)
+            profile.picture.save(profile.user.first_name + " " + profile.user.last_name, pic, save=True)
 
             for p in p_fields[4]:
                 profile.professions.add(Profession.objects.get(name=p))
@@ -104,9 +117,9 @@ def populate(request):
         if str is None:
             return None
         elif str == 'two days ago':
-            return date.today()-timedelta(days=2)
+            return date.today() - timedelta(days=2)
         else:
-            return date.today()-timedelta(days=1)
+            return date.today() - timedelta(days=1)
 
     def load_labourRequests():
         for lr_fields in labourRequests_list:
@@ -125,7 +138,6 @@ def populate(request):
                 worker=worker
             )
             labourRequest.save()
-
 
     def load_labourChats():
         for lc_fields in labourChat_list:
