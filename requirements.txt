@@ -15,7 +15,7 @@ jaraco.collections==3.0.0
 jaraco.functools==3.0.0
 jaraco.text==3.2.0
 more-itertools==8.2.0
-Pillow==6.1.0
+Pillow==9.0.0
 portend==2.6
 psycopg2==2.8.3
 pytz==2019.2
